@@ -9,18 +9,18 @@
     
         <meta name="keywords" content="Python基础语法" />
     
-    <meta name="description" content="2.1 调用解释器Ptython解释器一般以 /usr/local/bin/python3.6 安装在可用机器上，把/usr/local/bin 放在你的Unix shell搜索路径下，然后可以通过输入以下命令启动它： 1$ python 3.6">
+    <meta name="description" content="2.1 调用解释器Ptython解释器一般以 /usr/local/bin/python3.6 安装在可用机器上，把/usr/local/bin 放在你的Unix shell搜索路径下，然后可以通过在shell里输入以下命令启动它：1$ python 3.6 由于解释器的安装目录位置是可选择的，所有也可能被安装了在其他地方，具体的可以咨询你本地的Python专家或系统管理员。(比如: /usr/l">
 <meta name="keywords" content="Python基础语法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2.Python解释器的使用">
 <meta property="og:url" content="http://yoursite.com/2018/05/13/2-Python解释器的使用/index.html">
 <meta property="og:site_name" content="Edisenの博客">
-<meta property="og:description" content="2.1 调用解释器Ptython解释器一般以 /usr/local/bin/python3.6 安装在可用机器上，把/usr/local/bin 放在你的Unix shell搜索路径下，然后可以通过输入以下命令启动它： 1$ python 3.6">
+<meta property="og:description" content="2.1 调用解释器Ptython解释器一般以 /usr/local/bin/python3.6 安装在可用机器上，把/usr/local/bin 放在你的Unix shell搜索路径下，然后可以通过在shell里输入以下命令启动它：1$ python 3.6 由于解释器的安装目录位置是可选择的，所有也可能被安装了在其他地方，具体的可以咨询你本地的Python专家或系统管理员。(比如: /usr/l">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-12T18:56:46.568Z">
+<meta property="og:updated_time" content="2018-05-13T10:40:38.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2.Python解释器的使用">
-<meta name="twitter:description" content="2.1 调用解释器Ptython解释器一般以 /usr/local/bin/python3.6 安装在可用机器上，把/usr/local/bin 放在你的Unix shell搜索路径下，然后可以通过输入以下命令启动它： 1$ python 3.6">
+<meta name="twitter:description" content="2.1 调用解释器Ptython解释器一般以 /usr/local/bin/python3.6 安装在可用机器上，把/usr/local/bin 放在你的Unix shell搜索路径下，然后可以通过在shell里输入以下命令启动它：1$ python 3.6 由于解释器的安装目录位置是可选择的，所有也可能被安装了在其他地方，具体的可以咨询你本地的Python专家或系统管理员。(比如: /usr/l">
     
 
     
@@ -181,15 +181,36 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <h3 id="2-1-调用解释器"><a href="#2-1-调用解释器" class="headerlink" title="2.1 调用解释器"></a>2.1 调用解释器</h3><p>Ptython解释器一般以 /usr/local/bin/python3.6 安装在可用机器上，把/usr/local/bin 放在你的Unix shell搜索路径下，然后可以通过输入以下命令启动它：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python 3.6</span><br></pre></td></tr></table></figure>
+            <h3 id="2-1-调用解释器"><a href="#2-1-调用解释器" class="headerlink" title="2.1 调用解释器"></a>2.1 调用解释器</h3><p>Ptython解释器一般以 /usr/local/bin/python3.6 安装在可用机器上，把/usr/local/bin 放在你的Unix shell搜索路径下，然后可以通过在shell里输入以下命令启动它：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python 3.6</span><br></pre></td></tr></table></figure></p>
+<p>由于解释器的安装目录位置是可选择的，所有也可能被安装了在其他地方，具体的可以咨询你本地的Python专家或系统管理员。(比如: /usr/local/python 就是一个建议安装的位置。)</p>
+<p>在Windows机器上，Python的安装路径一般是 C:\Python36 ，虽然安装时你也可以安装到其他地方。在DOS框的命令提示符输入以下指令把这个目录加到电脑路径中：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">set</span> path=%path%;C:\python36</span><br></pre></td></tr></table></figure></p>
+<p>完成后，可在主提示符里输入文件结束符(Linux为Ctr_D,Windows为Ctr_Z)让解释器完全退出。如果那样不行的话，输入命令：quit()来退出解释器。</p>
+<p>在支持readline的系统上，Python解释器的行编辑功能里有交互式编辑、历史替换和代码完成等功能。在第一个Python提示符里输入Ctr_P 命令来检查命令行编辑是否受支持，这也许是最快的方法了。如果有嘟嘟声，则支持命令行编辑功能；可以查看附录“交互式输入编辑”和“历史替换”来了解其中的窍门。如果什么都没发生或者回显^P，则不支持命令行编辑；此时只能使用空格键来擅长当前行中的字符。</p>
+<p>解释器的运行方式跟Unix shell有些类似：当被调用的是连接到tty设备的标准输入时，解释器会一边读取一边执行命令；当被调用的是一个文件名参数或把一个文件作为标准输入时，解释器会读取那个文件并将读取的内容作为一个脚本执行。</p>
+<p>第二种启动显示器的方法是在命令框中执行python -c command [arg] …,这有些类似shell的 -c选项。因为Python中经常包含一些空格或其他特殊字符，所以一般建议用单引号引用整个命令。</p>
+<p>有些Python模块也可以当做有用的脚本。可以用python -m module [arg] …来调用这些模块，那个命令会执行模块的源文件，就跟你在命令行中拼写完整的名称的效果一样。</p>
+<p>当使用一个脚本文件时，有时候先运行脚本进入交互模式。这可以在执行脚本之前传递i来完成。</p>
+<p>&lt;命令行和环境中&gt;中介绍了所有的命令行选项。</p>
+<h3 id="2-1-1-参数传递"><a href="#2-1-1-参数传递" class="headerlink" title="2.1.1 参数传递"></a>2.1.1 参数传递</h3><p>当解释器知道脚本名称和附加参数传送过来时，脚本名称和附加参数会被转变成一个字符串列表并分配给sys模块中的argv变量。你可以执行import sys来获得这个列表。这个列表的长度不会小于1; 当脚本和参数都没有给出时，sys.argv[0]是一个空字符串。当脚本名字为‘-’(表示标准输出)，sys.argv[0]会被设置为‘-’。当使用-c命令时，sys.argv[0]会被设置为‘-c’。当使用-m模块时，sys.argv[0]会被设置为所在模块的全名。在-c或-m模块之后的选项不会被Python解释器选项处理使用，而是会留在sys.argv里让命令或模块处理。</p>
+<h3 id="2-1-2-交互模式"><a href="#2-1-2-交互模式" class="headerlink" title="2.1.2 交互模式"></a>2.1.2 交互模式</h3><p>当从tty读取命令时，解释器被认为处于交互模式。在这种模式下，它会提示下一个带有主提示符的命令，通常是三个大于符号(&gt;&gt;&gt;)；对于连续行，它会使用次要提示(默认情况是三个点…)进行提示。在打印第一个提示之前，解释器会打印一条欢迎信息，说明其版本号和版权声明。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">＄　$ python3.6</span><br><span class="line">＄　Python 3.6 (default, Sep 16 2015, 09:25:04)</span><br><span class="line">＄　[GCC 4.8.2] on linux</span><br><span class="line">＄　Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> or <span class="string">"license"</span> ＄　<span class="keyword">for</span> more information.</span><br><span class="line">＄　&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>当进入一个多线构造时需要连续行。举个例子，看一下下边的if语句：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">＄　&gt;&gt;&gt; the_world_is_flat = True</span><br><span class="line">＄　&gt;&gt;&gt; <span class="keyword">if</span> the_world_is_flat:</span><br><span class="line">...     <span class="built_in">print</span>(<span class="string">"Be careful not to fall off!"</span>)</span><br><span class="line">...</span><br><span class="line">Be careful not to fall off!</span><br></pre></td></tr></table></figure></p>
+<p>了解更多的交互模型，请查看&lt;交互模型&gt;</p>
+<h2 id="2-2-解释器及其环境"><a href="#2-2-解释器及其环境" class="headerlink" title="2.2 解释器及其环境"></a>2.2 解释器及其环境</h2><h3 id="2-2-1-源码编程"><a href="#2-2-1-源码编程" class="headerlink" title="2.2.1 源码编程"></a>2.2.1 源码编程</h3><p>Python的源文件默认是以UTF-8格式编码的。在这种编码格式下，世界上绝大多数语言的字符可以在字符串文字，标识符和注释中同时使用——尽管标准库只使用ASCII字符作为标识符，ASCII是任何可移植代码应遵循的约定。编辑器如果要正确显示这些字符，就必须识别该文件是UTF-8格式的，而且编辑器必须使用一种可以支持文件里所有字符的字体。</p>
+<p>如果不用默认的编码格式，而要声明另一种编码格式，则需要在文件的第一行添加一条特别的评论线。语法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="comment"># -*- coding: encoding -*-</span></span><br></pre></td></tr></table></figure>
+<p>encoding 是Python支持的编码解释器之一。</p>
+<p>比如要声明使用的是 Windows-1252编码格式，源代码文件的第一行应该是这样的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="comment"># -*- coding: cp1252 -*-</span></span><br></pre></td></tr></table></figure>
+<p>对于第一行规则有个例外：即源代码的第一行是 UNIX “shebang” 的时候。这种情况下，编码声明就需要加在文件的第二行。比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="comment">#!/usr/bin/env python3</span></span><br><span class="line">$　<span class="comment"># -*- coding: cp1252 -*-</span></span><br></pre></td></tr></table></figure>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2018/05/13/2-Python解释器的使用/" data-id="cjh3r5r4f000554pe82v3bj5u" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/05/13/2-Python解释器的使用/" data-id="cjh4ozh5r0000rwpeuggsvz6u" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -302,6 +323,16 @@
         
 <nav id="article-nav">
     
+        <a href="/2018/05/13/3-对Python的正式介绍/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            3.对Python的正式介绍
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2018/05/10/1-来点兴趣/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
@@ -332,6 +363,26 @@
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/13/3-对Python的正式介绍/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/05/13/3-对Python的正式介绍/" class="title">3.对Python的正式介绍</a></p>
+                            <p class="item-date"><time datetime="2018-05-13T10:43:02.000Z" itemprop="datePublished">2018-05-13</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -413,26 +464,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/05/03/hello-world/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/05/03/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2018-05-02T16:17:51.837Z" itemprop="datePublished">2018-05-03</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -452,7 +483,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">6</span></li></ul>
         </div>
     </div>
 
