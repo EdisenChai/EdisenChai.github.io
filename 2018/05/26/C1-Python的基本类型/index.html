@@ -9,18 +9,18 @@
     
         <meta name="keywords" content="Python系统课程-C1" />
     
-    <meta name="description" content="1.Python的基本类型1.1 数字： 整形与浮点型、布尔与复数Python中数字(Number)分为: (int)整形、(float)浮点型、(bool)布尔类型、(complex)复数。int 与 float :1234567891011&amp;gt;&amp;gt;&amp;gt; type(1)&amp;lt;class &apos;int&apos;&amp;gt;&amp;gt;&amp;gt;&amp;gt; type(1.1)&amp;lt;class &apos;float&apos;">
+    <meta name="description" content="(基于IDLE的演示) 1.Python的基本类型1.1 数字： 整形与浮点型、布尔与复数Python中数字(Number)分为: (int)整形、(float)浮点型、(bool)布尔类型、(complex)复数。int 与 float :1234567891011&amp;gt;&amp;gt;&amp;gt; type(1)&amp;lt;class &apos;int&apos;&amp;gt;&amp;gt;&amp;gt;&amp;gt; type(1.1)&amp;lt;c">
 <meta name="keywords" content="Python系统课程-C1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C1-Python的基本类型">
 <meta property="og:url" content="http://yoursite.com/2018/05/26/C1-Python的基本类型/index.html">
 <meta property="og:site_name" content="Edisenの博客">
-<meta property="og:description" content="1.Python的基本类型1.1 数字： 整形与浮点型、布尔与复数Python中数字(Number)分为: (int)整形、(float)浮点型、(bool)布尔类型、(complex)复数。int 与 float :1234567891011&amp;gt;&amp;gt;&amp;gt; type(1)&amp;lt;class &apos;int&apos;&amp;gt;&amp;gt;&amp;gt;&amp;gt; type(1.1)&amp;lt;class &apos;float&apos;">
+<meta property="og:description" content="(基于IDLE的演示) 1.Python的基本类型1.1 数字： 整形与浮点型、布尔与复数Python中数字(Number)分为: (int)整形、(float)浮点型、(bool)布尔类型、(complex)复数。int 与 float :1234567891011&amp;gt;&amp;gt;&amp;gt; type(1)&amp;lt;class &apos;int&apos;&amp;gt;&amp;gt;&amp;gt;&amp;gt; type(1.1)&amp;lt;c">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-26T07:21:32.927Z">
+<meta property="og:updated_time" content="2018-05-27T08:00:49.340Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C1-Python的基本类型">
-<meta name="twitter:description" content="1.Python的基本类型1.1 数字： 整形与浮点型、布尔与复数Python中数字(Number)分为: (int)整形、(float)浮点型、(bool)布尔类型、(complex)复数。int 与 float :1234567891011&amp;gt;&amp;gt;&amp;gt; type(1)&amp;lt;class &apos;int&apos;&amp;gt;&amp;gt;&amp;gt;&amp;gt; type(1.1)&amp;lt;class &apos;float&apos;">
+<meta name="twitter:description" content="(基于IDLE的演示) 1.Python的基本类型1.1 数字： 整形与浮点型、布尔与复数Python中数字(Number)分为: (int)整形、(float)浮点型、(bool)布尔类型、(complex)复数。int 与 float :1234567891011&amp;gt;&amp;gt;&amp;gt; type(1)&amp;lt;class &apos;int&apos;&amp;gt;&amp;gt;&amp;gt;&amp;gt; type(1.1)&amp;lt;c">
     
 
     
@@ -181,12 +181,19 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <h3 id="1-Python的基本类型"><a href="#1-Python的基本类型" class="headerlink" title="1.Python的基本类型"></a>1.Python的基本类型</h3><h4 id="1-1-数字：-整形与浮点型、布尔与复数"><a href="#1-1-数字：-整形与浮点型、布尔与复数" class="headerlink" title="1.1 数字： 整形与浮点型、布尔与复数"></a>1.1 数字： 整形与浮点型、布尔与复数</h4><p>Python中数字(Number)分为: (int)整形、(float)浮点型、(bool)布尔类型、(complex)复数。<br>int 与 float :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(1)</span><br><span class="line">&lt;class <span class="string">'int'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(1.1)</span><br><span class="line">&lt;class <span class="string">'float'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(1*2)</span><br><span class="line">&lt;class <span class="string">'int'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(2/2)</span><br><span class="line">&lt;class <span class="string">'float'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(2//2) <span class="comment">#转义字符 即让两个整除的整数的结果变为整形</span></span><br><span class="line">&lt;class <span class="string">'int'</span>&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>bool : True False 首字母一定要大写！</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(True)</span><br><span class="line">&lt;class <span class="string">'bool'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(False)</span><br><span class="line">&lt;class <span class="string">'bool'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(<span class="literal">true</span>)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;pyshell#10&gt;"</span>, line 1, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="built_in">type</span>(<span class="literal">true</span>)</span><br><span class="line">NameError: name <span class="string">'true'</span> is not defined</span><br></pre></td></tr></table></figure>
+            <p>(基于IDLE的演示)</p>
+<h3 id="1-Python的基本类型"><a href="#1-Python的基本类型" class="headerlink" title="1.Python的基本类型"></a>1.Python的基本类型</h3><h4 id="1-1-数字：-整形与浮点型、布尔与复数"><a href="#1-1-数字：-整形与浮点型、布尔与复数" class="headerlink" title="1.1 数字： 整形与浮点型、布尔与复数"></a>1.1 数字： 整形与浮点型、布尔与复数</h4><p>Python中数字(Number)分为: (int)整形、(float)浮点型、(bool)布尔类型、(complex)复数。<br>int 与 float :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(1)</span><br><span class="line">&lt;class <span class="string">'int'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(1.1)</span><br><span class="line">&lt;class <span class="string">'float'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(1*2)</span><br><span class="line">&lt;class <span class="string">'int'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(2/2)</span><br><span class="line">&lt;class <span class="string">'float'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(2//2) <span class="comment">#转义字符 即让两个整除的整数的结果变为整形</span></span><br><span class="line">&lt;class <span class="string">'int'</span>&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>bool : True、False 首字母一定要大写！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(True)</span><br><span class="line">&lt;class <span class="string">'bool'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(False)</span><br><span class="line">&lt;class <span class="string">'bool'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(<span class="literal">true</span>) <span class="comment"># 因为小写，会报错！</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;pyshell#10&gt;"</span>, line 1, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="built_in">type</span>(<span class="literal">true</span>)</span><br><span class="line">NameError: name <span class="string">'true'</span> is not defined</span><br></pre></td></tr></table></figure>
 <p>在Python中为什么bool属于数字这一基本类型呢？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; int(False)</span><br><span class="line">0</span><br><span class="line">&gt;&gt;&gt; int(True)</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; bool(1)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; bool(0)</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; bool(0b01) <span class="comment">#二进制的1</span></span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; bool(0b0) <span class="comment">#二进制的0</span></span><br><span class="line">False</span><br></pre></td></tr></table></figure></p>
 <p>其他哪些数字或者字符也可以表示True或者False呢？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; bool(2)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; bool(-1)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; bool(1.1)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; bool( ) <span class="comment"># 空格表示False</span></span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; bool(<span class="string">''</span>) <span class="comment"># 空字符串也表示False</span></span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; bool(<span class="string">' '</span>) <span class="comment"># 带有空格的字符串表示True</span></span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; bool([1,2,3]) <span class="comment"># 非空列表(同理非空列表'&#123;1,2,3&#125;')表示True</span></span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; bool([]) <span class="comment"># 空列表表示False</span></span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; bool(None) <span class="comment"># None也表示False</span></span><br><span class="line">False</span><br></pre></td></tr></table></figure></p>
-<p>字符串 str 表示方法： 单引号、双引号、三引号<br>三种表示方法都可以，这样设计只是为了嵌套表达方便<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(<span class="string">'hi nice'</span>)</span><br><span class="line">&lt;class <span class="string">'str'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(<span class="string">"cat tom"</span>)</span><br><span class="line">&lt;class <span class="string">'str'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(<span class="string">''</span><span class="string">'dog tony'</span><span class="string">''</span>)</span><br><span class="line">&lt;class <span class="string">'str'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(<span class="string">"let's go"</span>)</span><br><span class="line"><span class="built_in">let</span><span class="string">'s go</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; print('</span><span class="built_in">let</span>\<span class="string">'s go'</span>) <span class="comment"># '\' 转义字符</span></span><br><span class="line"><span class="built_in">let</span><span class="string">'s go</span></span><br><span class="line"><span class="string">&gt;&gt;&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="1-2-字符串-str"><a href="#1-2-字符串-str" class="headerlink" title="1.2 字符串 str"></a>1.2 字符串 str</h4><p>表示方法： 单引号、双引号、三引号。<br>三种表示方法都可以，这样设计只是为了嵌套表达方便以及方便换行。<br>a.方便嵌套表达：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(<span class="string">'hi nice'</span>)</span><br><span class="line">&lt;class <span class="string">'str'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(<span class="string">"cat tom"</span>)</span><br><span class="line">&lt;class <span class="string">'str'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(<span class="string">''</span><span class="string">'dog tony'</span><span class="string">''</span>)</span><br><span class="line">&lt;class <span class="string">'str'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(<span class="string">"let's go"</span>)</span><br><span class="line"><span class="built_in">let</span><span class="string">'s go</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; print('</span><span class="built_in">let</span>\<span class="string">'s go'</span>) <span class="comment"># '\' 转义字符</span></span><br><span class="line"><span class="built_in">let</span><span class="string">'s go</span></span><br></pre></td></tr></table></figure></p>
+<p>b.方便换行表达：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="string">''</span><span class="string">'first line</span></span><br><span class="line"><span class="string">second line</span></span><br><span class="line"><span class="string">third line'</span><span class="string">''</span></span><br><span class="line"><span class="string">'first line\nsecond line\nthird line'</span></span><br><span class="line">&gt;&gt;&gt; <span class="string">""</span><span class="string">"first line</span></span><br><span class="line"><span class="string">second line</span></span><br><span class="line"><span class="string">third line"</span><span class="string">""</span></span><br><span class="line"><span class="string">'first line\nsecond line\nthird line'</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>反过来想输出多行。则需借助print函数实现：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(<span class="string">""</span><span class="string">"hi Tom\nhi Jim\nhi Mary"</span><span class="string">""</span>)</span><br><span class="line">hi Tom</span><br><span class="line">hi Jim</span><br><span class="line">hi Mary</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(<span class="string">''</span><span class="string">'hi Tom\nhi Jim\nhi Mary'</span><span class="string">''</span>)</span><br><span class="line">hi Tom</span><br><span class="line">hi Jim</span><br><span class="line">hi Mary</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(<span class="string">'hi Tom\nhi Jim\nhi Mary'</span>)</span><br><span class="line">hi Tom</span><br><span class="line">hi Jim</span><br><span class="line">hi Mary</span><br></pre></td></tr></table></figure></p>
+<p>再补充一种单引号换行方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="string">'hi #直接按Enter换行会报错</span></span><br><span class="line"><span class="string">SyntaxError: EOL while scanning string literal</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&gt;&gt;&gt; '</span>hi \ <span class="comment"># 末尾加一个 \ 即可实现单引号换行</span></span><br><span class="line">tom<span class="string">'</span></span><br><span class="line"><span class="string">'</span>hi tom<span class="string">'</span></span><br><span class="line"><span class="string">&gt;&gt;&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="1-3-转义字符及原始字符串"><a href="#1-3-转义字符及原始字符串" class="headerlink" title="1.3 转义字符及原始字符串"></a>1.3 转义字符及原始字符串</h4><p>转义字符串即一些特殊字符，大概分为两类：<br>a. 无法“看见”的字符，比如 换行符(\n)，横向制表符(\t)，回车符(\r)<br>b. 与语言本身语法有冲突的字符，比如 单引号(\’)<br>更多的转义字符可网上查询。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(<span class="string">'hi \n tom'</span>)</span><br><span class="line">hi </span><br><span class="line"> tom</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(<span class="string">'hi \\n tom'</span>)</span><br><span class="line">hi \n tom</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;  <span class="string">'let\'</span>s go<span class="string">'</span></span><br><span class="line"><span class="string">"let'</span>s go<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&gt;&gt;&gt;  print('C:\\utils\\javaTools') # 通过转义字符输入目录</span></span><br><span class="line"><span class="string">C:\utils\javaTools</span></span><br><span class="line"><span class="string">&gt;&gt;&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>原始字符串 r<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(r<span class="string">'C:\utils\javaTools'</span>) <span class="comment"># 通过原始字符串 r(也可大写R) 可以让  \ 原始输出</span></span><br><span class="line">C:\utils\javaTools</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="1-4-字符串的相关运算"><a href="#1-4-字符串的相关运算" class="headerlink" title="1.4 字符串的相关运算"></a>1.4 字符串的相关运算</h4><p>a.简单的 ＋、* 及基本的取值操作：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="string">'hi'</span> + <span class="string">' Tom'</span></span><br><span class="line"><span class="string">'hi Tom'</span></span><br><span class="line">&gt;&gt;&gt; <span class="string">'hi '</span>*3</span><br><span class="line"><span class="string">'hi hi hi '</span></span><br><span class="line">&gt;&gt;&gt; <span class="string">"nice to meet"</span>[2]</span><br><span class="line"><span class="string">'c'</span></span><br><span class="line">&gt;&gt;&gt; <span class="string">"nice to meet"</span>[-1]</span><br><span class="line"><span class="string">'t'</span></span><br><span class="line">&gt;&gt;&gt; <span class="string">"hi nice !"</span>[0:2]</span><br><span class="line"><span class="string">'hi'</span></span><br><span class="line">&gt;&gt;&gt; <span class="string">"hi nice !"</span>[0:-2]</span><br><span class="line"><span class="string">'hi nice'</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; <span class="string">"hello word"</span>[6:10] <span class="comment"># 大于字符串的最大长度也无所谓，这里10写20也可以</span></span><br><span class="line"><span class="string">'word'</span></span><br><span class="line">&gt;&gt;&gt; <span class="string">"hello word"</span>[6:] <span class="comment"># 这里的冒号(空缺)表示从第六位到最后</span></span><br><span class="line"><span class="string">'word'</span></span><br><span class="line">&gt;&gt;&gt; <span class="string">"dguhioefoy89y weg python"</span>[-6:] <span class="comment"># 字符串较长时如果只取最后几个字符 这种操作高效</span></span><br><span class="line"><span class="string">'python'</span></span><br></pre></td></tr></table></figure></p>
 
         </div>
         <footer class="article-footer">
@@ -194,7 +201,7 @@
 
 
 
-    <a data-url="http://yoursite.com/2018/05/26/C1-Python的基本类型/" data-id="cjhn2hjnt0005p0peldonxiks" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/05/26/C1-Python的基本类型/" data-id="cjhp1ecoe000504pe4v89t0yq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -307,6 +314,16 @@
         
 <nav id="article-nav">
     
+        <a href="/2018/05/27/C1-Python中组的概念/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            C1-Python中组的概念
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2018/05/13/3-对Python的正式介绍/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
@@ -337,6 +354,26 @@
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/27/C1-Python中组的概念/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
+                            <p class="item-title"><a href="/2018/05/27/C1-Python中组的概念/" class="title">C1-Python中组的概念</a></p>
+                            <p class="item-date"><time datetime="2018-05-27T08:03:05.000Z" itemprop="datePublished">2018-05-27</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -418,26 +455,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/05/05/Python基本语法-Part-1/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/05/05/Python基本语法-Part-1/p1.jpg)" alt="Python基本语法 Part 1" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/05/05/Python基本语法-Part-1/" class="title">Python基本语法 Part 1</a></p>
-                            <p class="item-date"><time datetime="2018-05-05T03:44:59.000Z" itemprop="datePublished">2018-05-05</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -447,7 +464,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">4</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">5</span></li></ul>
         </div>
     </div>
 
@@ -457,7 +474,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">7</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">8</span></li></ul>
         </div>
     </div>
 
@@ -467,7 +484,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python基础语法/">Python基础语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python基础语法/">Python基础语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a><span class="tag-list-count">2</span></li></ul>
         </div>
     </div>
 
