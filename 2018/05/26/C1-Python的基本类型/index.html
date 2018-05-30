@@ -3,24 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>C1-Python的基本类型 | Edisenの博客</title>
+    <title>C1-Python的基本类型1--数字 | Edisenの博客</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="Python系统课程-C1" />
     
-    <meta name="description" content="(基于IDLE的演示) 1.Python的基本类型1.1 数字： 整形与浮点型、布尔与复数Python中数字(Number)分为: (int)整形、(float)浮点型、(bool)布尔类型、(complex)复数。int 与 float :1234567891011&amp;gt;&amp;gt;&amp;gt; type(1)&amp;lt;class &apos;int&apos;&amp;gt;&amp;gt;&amp;gt;&amp;gt; type(1.1)&amp;lt;c">
+    <meta name="description" content="(基于IDLE的演示) 1.Python的基本类型1–Number1.1 数字： 整形与浮点型、布尔与复数Python中数字(Number)分为: (int)整形、(float)浮点型、(bool)布尔类型、(complex)复数。int 与 float :1234567891011&amp;gt;&amp;gt;&amp;gt; type(1)&amp;lt;class &apos;int&apos;&amp;gt;&amp;gt;&amp;gt;&amp;gt; type(1">
 <meta name="keywords" content="Python系统课程-C1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C1-Python的基本类型">
+<meta property="og:title" content="C1-Python的基本类型1--数字">
 <meta property="og:url" content="http://yoursite.com/2018/05/26/C1-Python的基本类型/index.html">
 <meta property="og:site_name" content="Edisenの博客">
-<meta property="og:description" content="(基于IDLE的演示) 1.Python的基本类型1.1 数字： 整形与浮点型、布尔与复数Python中数字(Number)分为: (int)整形、(float)浮点型、(bool)布尔类型、(complex)复数。int 与 float :1234567891011&amp;gt;&amp;gt;&amp;gt; type(1)&amp;lt;class &apos;int&apos;&amp;gt;&amp;gt;&amp;gt;&amp;gt; type(1.1)&amp;lt;c">
+<meta property="og:description" content="(基于IDLE的演示) 1.Python的基本类型1–Number1.1 数字： 整形与浮点型、布尔与复数Python中数字(Number)分为: (int)整形、(float)浮点型、(bool)布尔类型、(complex)复数。int 与 float :1234567891011&amp;gt;&amp;gt;&amp;gt; type(1)&amp;lt;class &apos;int&apos;&amp;gt;&amp;gt;&amp;gt;&amp;gt; type(1">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-27T08:00:49.340Z">
+<meta property="og:updated_time" content="2018-05-30T00:29:19.045Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C1-Python的基本类型">
-<meta name="twitter:description" content="(基于IDLE的演示) 1.Python的基本类型1.1 数字： 整形与浮点型、布尔与复数Python中数字(Number)分为: (int)整形、(float)浮点型、(bool)布尔类型、(complex)复数。int 与 float :1234567891011&amp;gt;&amp;gt;&amp;gt; type(1)&amp;lt;class &apos;int&apos;&amp;gt;&amp;gt;&amp;gt;&amp;gt; type(1.1)&amp;lt;c">
+<meta name="twitter:title" content="C1-Python的基本类型1--数字">
+<meta name="twitter:description" content="(基于IDLE的演示) 1.Python的基本类型1–Number1.1 数字： 整形与浮点型、布尔与复数Python中数字(Number)分为: (int)整形、(float)浮点型、(bool)布尔类型、(complex)复数。int 与 float :1234567891011&amp;gt;&amp;gt;&amp;gt; type(1)&amp;lt;class &apos;int&apos;&amp;gt;&amp;gt;&amp;gt;&amp;gt; type(1">
     
 
     
@@ -156,7 +156,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-        C1-Python的基本类型
+        C1-Python的基本类型1--数字
         </h1>
     
 
@@ -182,7 +182,7 @@
         
         <div class="article-entry" itemprop="articleBody">
             <p>(基于IDLE的演示)</p>
-<h3 id="1-Python的基本类型"><a href="#1-Python的基本类型" class="headerlink" title="1.Python的基本类型"></a>1.Python的基本类型</h3><h4 id="1-1-数字：-整形与浮点型、布尔与复数"><a href="#1-1-数字：-整形与浮点型、布尔与复数" class="headerlink" title="1.1 数字： 整形与浮点型、布尔与复数"></a>1.1 数字： 整形与浮点型、布尔与复数</h4><p>Python中数字(Number)分为: (int)整形、(float)浮点型、(bool)布尔类型、(complex)复数。<br>int 与 float :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(1)</span><br><span class="line">&lt;class <span class="string">'int'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(1.1)</span><br><span class="line">&lt;class <span class="string">'float'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(1*2)</span><br><span class="line">&lt;class <span class="string">'int'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(2/2)</span><br><span class="line">&lt;class <span class="string">'float'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(2//2) <span class="comment">#转义字符 即让两个整除的整数的结果变为整形</span></span><br><span class="line">&lt;class <span class="string">'int'</span>&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-Python的基本类型1–Number"><a href="#1-Python的基本类型1–Number" class="headerlink" title="1.Python的基本类型1–Number"></a>1.Python的基本类型1–Number</h3><h4 id="1-1-数字：-整形与浮点型、布尔与复数"><a href="#1-1-数字：-整形与浮点型、布尔与复数" class="headerlink" title="1.1 数字： 整形与浮点型、布尔与复数"></a>1.1 数字： 整形与浮点型、布尔与复数</h4><p>Python中数字(Number)分为: (int)整形、(float)浮点型、(bool)布尔类型、(complex)复数。<br>int 与 float :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(1)</span><br><span class="line">&lt;class <span class="string">'int'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(1.1)</span><br><span class="line">&lt;class <span class="string">'float'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(1*2)</span><br><span class="line">&lt;class <span class="string">'int'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(2/2)</span><br><span class="line">&lt;class <span class="string">'float'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(2//2) <span class="comment">#转义字符 即让两个整除的整数的结果变为整形</span></span><br><span class="line">&lt;class <span class="string">'int'</span>&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
 <p>bool : True、False 首字母一定要大写！</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(True)</span><br><span class="line">&lt;class <span class="string">'bool'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(False)</span><br><span class="line">&lt;class <span class="string">'bool'</span>&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(<span class="literal">true</span>) <span class="comment"># 因为小写，会报错！</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;pyshell#10&gt;"</span>, line 1, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="built_in">type</span>(<span class="literal">true</span>)</span><br><span class="line">NameError: name <span class="string">'true'</span> is not defined</span><br></pre></td></tr></table></figure>
 <p>在Python中为什么bool属于数字这一基本类型呢？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; int(False)</span><br><span class="line">0</span><br><span class="line">&gt;&gt;&gt; int(True)</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; bool(1)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; bool(0)</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; bool(0b01) <span class="comment">#二进制的1</span></span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; bool(0b0) <span class="comment">#二进制的0</span></span><br><span class="line">False</span><br></pre></td></tr></table></figure></p>
@@ -201,7 +201,7 @@
 
 
 
-    <a data-url="http://yoursite.com/2018/05/26/C1-Python的基本类型/" data-id="cjhqyln730006swpe6yjvm5n1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/05/26/C1-Python的基本类型/" data-id="cjhsdjahd0005lkpeyeya80aq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -318,7 +318,7 @@
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            C1-Python中组的概念
+            C1-Python基础类型2--组的概念
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
@@ -361,7 +361,7 @@
                             <a href="/2018/05/27/C1-Python中组的概念/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/2018/05/27/C1-Python中组的概念/python_basic_data_types.png)" alt="C1-Python基础类型2--组的概念" class="thumbnail-image"></span>
     
     
 </a>
@@ -370,7 +370,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
-                            <p class="item-title"><a href="/2018/05/27/C1-Python中组的概念/" class="title">C1-Python中组的概念</a></p>
+                            <p class="item-title"><a href="/2018/05/27/C1-Python中组的概念/" class="title">C1-Python基础类型2--组的概念</a></p>
                             <p class="item-date"><time datetime="2018-05-27T08:03:05.000Z" itemprop="datePublished">2018-05-27</time></p>
                         </div>
                     </li>
@@ -390,7 +390,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
-                            <p class="item-title"><a href="/2018/05/26/C1-Python的基本类型/" class="title">C1-Python的基本类型</a></p>
+                            <p class="item-title"><a href="/2018/05/26/C1-Python的基本类型/" class="title">C1-Python的基本类型1--数字</a></p>
                             <p class="item-date"><time datetime="2018-05-26T05:24:54.000Z" itemprop="datePublished">2018-05-26</time></p>
                         </div>
                     </li>
