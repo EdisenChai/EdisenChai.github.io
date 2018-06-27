@@ -9,15 +9,20 @@
     
         <meta name="keywords" content="Python系统课程-C1" />
     
-    <meta name="keywords" content="Python系统课程-C1">
+    <meta name="description" content="5 python的包、模块、函数及变量作用域5.1 while、for及 break、continue基本用法1234567891011121314151617181920212223242526272829303132333435363738394041&quot;&quot;&quot; 1.while 循环  其主要使用场景：递归 其他一般用for 2.for循环 其主要使用场景：遍历、循环 序列、集合或字典等&quot;&quot;&quot;#">
+<meta name="keywords" content="Python系统课程-C1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="五、python的包、模块、函数及变量作用域">
 <meta property="og:url" content="http://yoursite.com/2018/06/27/五、python的包、模块、函数及变量作用域/index.html">
 <meta property="og:site_name" content="Edisenの博客">
+<meta property="og:description" content="5 python的包、模块、函数及变量作用域5.1 while、for及 break、continue基本用法1234567891011121314151617181920212223242526272829303132333435363738394041&quot;&quot;&quot; 1.while 循环  其主要使用场景：递归 其他一般用for 2.for循环 其主要使用场景：遍历、循环 序列、集合或字典等&quot;&quot;&quot;#">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-27T06:03:01.931Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/27/五、python的包、模块、函数及变量作用域/import_as.png">
+<meta property="og:updated_time" content="2018-06-27T16:45:38.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="五、python的包、模块、函数及变量作用域">
+<meta name="twitter:description" content="5 python的包、模块、函数及变量作用域5.1 while、for及 break、continue基本用法1234567891011121314151617181920212223242526272829303132333435363738394041&quot;&quot;&quot; 1.while 循环  其主要使用场景：递归 其他一般用for 2.for循环 其主要使用场景：遍历、循环 序列、集合或字典等&quot;&quot;&quot;#">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/27/五、python的包、模块、函数及变量作用域/import_as.png">
     
 
     
@@ -178,14 +183,36 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <h3 id="5-python的包、模块、函数及变量作用域"><a href="#5-python的包、模块、函数及变量作用域" class="headerlink" title="5 python的包、模块、函数及变量作用域"></a>5 python的包、模块、函数及变量作用域</h3><h4 id="5-1-while、for及-break、continue基本用法"><a href="#5-1-while、for及-break、continue基本用法" class="headerlink" title="5.1 while、for及 break、continue基本用法"></a>5.1 while、for及 break、continue基本用法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string"> 1.while 循环 </span></span><br><span class="line"><span class="string"> 其主要使用场景：递归 其他一般用for</span></span><br><span class="line"><span class="string"> 2.for循环</span></span><br><span class="line"><span class="string"> 其主要使用场景：遍历、循环 序列、集合或字典等</span></span><br><span class="line"><span class="string">"</span><span class="string">""</span></span><br><span class="line"><span class="comment"># while 循环</span></span><br><span class="line">count = 0</span><br><span class="line"><span class="keyword">while</span> count &lt;= 2:</span><br><span class="line">    count += 1</span><br><span class="line">    <span class="built_in">print</span>(count)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'over,last count is : '</span> + str(count))</span><br><span class="line"></span><br><span class="line"><span class="comment"># for 循环</span></span><br><span class="line">cats = [[<span class="string">'mini'</span>,<span class="string">'2kg'</span>,<span class="string">'blue'</span>,1.2],[<span class="string">'huahua'</span>,<span class="string">'1kg'</span>,<span class="string">'black'</span>,1],[<span class="string">'kitty'</span>,<span class="string">'3kg'</span>,<span class="string">'white'</span>,3]]</span><br><span class="line"><span class="keyword">for</span> cat <span class="keyword">in</span> cats:</span><br><span class="line">    <span class="built_in">print</span>(cat)</span><br><span class="line">    <span class="keyword">for</span> info <span class="keyword">in</span> cat:</span><br><span class="line">        <span class="keyword">if</span> info == cat[-1]:</span><br><span class="line">            <span class="built_in">print</span>(info)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(info,end=<span class="string">','</span>)</span><br><span class="line">                  </span><br><span class="line"><span class="comment"># continue</span></span><br><span class="line"></span><br><span class="line">trees = [<span class="string">'松树'</span>,<span class="string">'杨树'</span>,<span class="string">'白桦树'</span>,<span class="string">'榕树'</span>]</span><br><span class="line"><span class="keyword">for</span> tree <span class="keyword">in</span> trees:</span><br><span class="line">    <span class="keyword">if</span> tree == <span class="string">'白桦树'</span>:</span><br><span class="line">        <span class="built_in">continue</span> <span class="comment"># 跳过 白桦树 继续往下执行</span></span><br><span class="line">    <span class="built_in">print</span>(tree)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'over'</span>)</span><br><span class="line"><span class="comment"># break</span></span><br><span class="line">trees2 = [<span class="string">'松树'</span>,<span class="string">'杨树'</span>,<span class="string">'白桦树'</span>,<span class="string">'榕树'</span>]</span><br><span class="line"><span class="keyword">for</span> tree <span class="keyword">in</span> trees2:</span><br><span class="line">    <span class="keyword">if</span> tree == <span class="string">'白桦树'</span>:</span><br><span class="line">        <span class="built_in">break</span> <span class="comment"># 跳过 白桦树 且不再继续往下执行</span></span><br><span class="line">    <span class="built_in">print</span>(tree)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'over'</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="for-in-range-可替代for循环"><a href="#for-in-range-可替代for循环" class="headerlink" title="for in range()可替代for循环:"></a>for in range()可替代for循环:</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>  num <span class="keyword">in</span> range(1,10):</span><br><span class="line">    <span class="built_in">print</span>(num,end = <span class="string">'|'</span>) </span><br><span class="line"><span class="built_in">print</span>(<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> sn <span class="keyword">in</span> range(1,10,3):</span><br><span class="line">    <span class="built_in">print</span>(sn)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> st <span class="keyword">in</span> range(10,0,-2):</span><br><span class="line">    <span class="built_in">print</span>(st,end = <span class="string">'、'</span>)</span><br><span class="line">    </span><br><span class="line">al = [1,2,3,4,5,6,7,8]  <span class="comment"># for in range 与序列结合使用   </span></span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(0,len(al),2):</span><br><span class="line">    <span class="built_in">print</span>(al[a],end = <span class="string">'|'</span>)</span><br><span class="line"></span><br><span class="line">b = al[0:len(al):2] <span class="comment"># 三元切片: start,end,step</span></span><br><span class="line"><span class="built_in">print</span>(b)</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-包、模块及导入"><a href="#5-2-包、模块及导入" class="headerlink" title="5.2 包、模块及导入"></a>5.2 包、模块及导入</h4><p>追求高性能、封装性(可复用性)—抽象能力<br>包–模块–类—函数与变量<br>如果一个文件夹要成为一个包，那么这个文件夹要包含一个<strong>init</strong>.py文件(其本身也是个模块).<br>对于多个包、模块的相互调用，为了提高软件复用性，需要重复引用变量。所以，公用的东西应该提取放置在同一个模块里，方便引用，所以需要导入import功能。<br>import 导入：可直观看到导入的变量属于哪个模块<br>1、在同一个路径内：import module_name<br>举例如图：<br></p>
+<p>2、在不同的路径内：import + 命名空间（文件夹名.模块名）<br>使用导入模块的变量：module_name(命名空间).变量明<br>避免命名空间过长，可利用as关键字进行简化 例：import t.c7 as m<br>注意，import不能直接导入变量，只能导入模块。<br>举例如图：</p>
+<img src="/2018/06/27/五、python的包、模块、函数及变量作用域/import_as.png" title="不同路径导入模块">
+<p>frmo导入模式：</p>
+<img src="/2018/06/27/五、python的包、模块、函数及变量作用域/p_import_m1.png" title="不同路径from导入模块">
+<h4 id="5-3-init-py的用法"><a href="#5-3-init-py的用法" class="headerlink" title="5.3 init.py的用法"></a>5.3 <strong>init</strong>.py的用法</h4><ol>
+<li>代码换行最好用（）   也可以在末尾加上反斜杠\<br>示例如图：</li>
+</ol>
+<img src="/2018/06/27/五、python的包、模块、函数及变量作用域/next_line.png" title="代码换行">
+<ol start="2">
+<li><strong>init</strong>.py 的作用：<br>①当包或该包下的模块,变量..被导入时，该文件自动执行。可以用来做包和模块的初始化;<br>举例如图：</li>
+</ol>
+<img src="/2018/06/27/五、python的包、模块、函数及变量作用域/self_init.png" title="利用__init__.py初始化包或模块">
+<p>②可以在<strong>init_</strong>.py文件中定义’’<strong>all</strong>‘’变量来定义该包下哪些模块可以被其它模块引用(from 包 import *),举例如图：</p>
+<img src="/2018/06/27/五、python的包、模块、函数及变量作用域/init___all__.png" title="利用__all__控制在*情况下那些模块可以导入">
+<p>③可以利用<strong>init</strong>.py文件做批量导入<br>在子包的 <strong>init</strong>.py文件里导入需要的模块, 然后在上一级 import 子包名 进行模块的批量导入 ,注意 ::引用的时候注意命名空间 子包名.def;<br>示例如图：</p>
+<img src="/2018/06/27/五、python的包、模块、函数及变量作用域/init_import.png" title="利用__init__.py做批量导入模块">
+<ol start="3">
+<li><strong>init</strong>.py文件名 就是包名</li>
+</ol>
+<h4 id="5-4"><a href="#5-4" class="headerlink" title="5.4"></a>5.4</h4>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2018/06/27/五、python的包、模块、函数及变量作用域/" data-id="cjiwptvqn000io0petblhvrsq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/06/27/五、python的包、模块、函数及变量作用域/" data-id="cjixctk4s000p50pepdlift4r" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -335,7 +362,7 @@
                             <a href="/2018/06/27/五、python的包、模块、函数及变量作用域/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/2018/06/27/五、python的包、模块、函数及变量作用域/import_as.png)" alt="五、python的包、模块、函数及变量作用域" class="thumbnail-image"></span>
     
     
 </a>
