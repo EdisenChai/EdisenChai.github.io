@@ -18,7 +18,7 @@
 <meta property="og:description" content="5 python的包、模块、函数及变量作用域5.1 while、for及 break、continue基本用法1234567891011121314151617181920212223242526272829303132333435363738394041&quot;&quot;&quot; 1.while 循环  其主要使用场景：递归 其他一般用for 2.for循环 其主要使用场景：遍历、循环 序列、集合或字典等&quot;&quot;&quot;#">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/06/27/五、python的包、模块、函数及变量作用域/import_as.png">
-<meta property="og:updated_time" content="2018-06-27T16:45:38.053Z">
+<meta property="og:updated_time" content="2018-06-28T10:16:33.312Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="五、python的包、模块、函数及变量作用域">
 <meta name="twitter:description" content="5 python的包、模块、函数及变量作用域5.1 while、for及 break、continue基本用法1234567891011121314151617181920212223242526272829303132333435363738394041&quot;&quot;&quot; 1.while 循环  其主要使用场景：递归 其他一般用for 2.for循环 其主要使用场景：遍历、循环 序列、集合或字典等&quot;&quot;&quot;#">
@@ -205,14 +205,30 @@
 <ol start="3">
 <li><strong>init</strong>.py文件名 就是包名</li>
 </ol>
-<h4 id="5-4"><a href="#5-4" class="headerlink" title="5.4"></a>5.4</h4>
+<h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><p>a.包和模块是不会重复导入的;<br>b.不能循环导入包或模块,举例如图(需注意还有多包循环导入)：<br>k1导入k2时,会自动执行k2里的所有代码.<br><img src="/2018/06/27/五、python的包、模块、函数及变量作用域/dead_import.png" title="不能循环导入包或模块"></p>
+<h4 id="5-4-普通模块内置变量"><a href="#5-4-普通模块内置变量" class="headerlink" title="5.4 普通模块内置变量"></a>5.4 普通模块内置变量</h4><p>常用的有四种：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""</span><span class="string">" </span></span><br><span class="line"><span class="string">This is k3.py </span></span><br><span class="line"><span class="string">"</span><span class="string">""</span></span><br><span class="line">p = 1</span><br><span class="line">d = <span class="string">'s'</span></span><br><span class="line">lls = [1,<span class="string">'23'</span>,(1,2,3)]</span><br><span class="line"></span><br><span class="line">info = dir() <span class="comment"># 将模块中的所有变量以一个列表展现出来</span></span><br><span class="line"><span class="built_in">print</span>(info)</span><br><span class="line"><span class="comment"># 比较重要的四个Python内置变量：</span></span><br><span class="line"><span class="comment"># '__name__', '__package__','__doc__', '__file__'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#cmd下输出结果为：</span></span><br><span class="line">g:\Python\Demon2\seven\k&gt;k3.py</span><br><span class="line">[<span class="string">'__annotations__'</span>, <span class="string">'__builtins__'</span>, <span class="string">'__cached__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__file__'</span>, <span class="string">'__loader__'</span>, <span class="string">'__name__'</span>, <span class="string">'__package__'</span>, <span class="string">'__spec__'</span>, <span class="string">'d'</span>,</span><br><span class="line"><span class="string">'lls'</span>, <span class="string">'p'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>其中doc是模块说明,举例如图：</p>
+<img src="/2018/06/27/五、python的包、模块、函数及变量作用域/built-in-variable.png" title="内置变量">
+<h4 id="5-5-入口文件和普通模块内置变量的区别"><a href="#5-5-入口文件和普通模块内置变量的区别" class="headerlink" title="5.5 入口文件和普通模块内置变量的区别"></a>5.5 入口文件和普通模块内置变量的区别</h4><p>入口文件(程序执行文件)的内置变量，特点是：<br>a. <strong>name</strong> 为 <strong>main</strong> ;<br>b. <strong>package</strong> 不属于任何包;<br>c. <strong>file</strong> 的值取决于入口文件在什么位置被执行<br>举例如下：</p>
+<img src="/2018/06/27/五、python的包、模块、函数及变量作用域/entry_file.png" title="入口文件的内置变量">
+<h4 id="5-6-name的经典应用"><a href="#5-6-name的经典应用" class="headerlink" title="5.6 name的经典应用"></a>5.6 <strong>name</strong>的经典应用</h4><p>a. 当查看某一个类或某一个模块中的所有变量时，可以使用dir()</p>
+<img src="/2018/06/27/五、python的包、模块、函数及变量作用域/dir_sys.png" title="dir(sys)查看sys中所有变量">
+<p>b. <strong>name</strong> 可用来判断一个.py是被当做一个入口文件使用，还是被当做一个普通模块使用。<br>经典用法举例：</p>
+<img src="/2018/06/27/五、python的包、模块、函数及变量作用域/appli_name__.png" title="__name__经典用法">
+<p>c. (利用<strong>doc</strong>做项目的自动文档生成工具)<br>python中的普通模块必须要有一个包，当想把一个可执行文件当做一个普通模块运行时，可使用-m参数，如下：<br>python -m 命名空间.模块名<br>(python 模块名 或 python window路径名\模块名)<br>举例如图：</p>
+<img src="/2018/06/27/五、python的包、模块、函数及变量作用域/python-m.png" title="python -m 用法">
+<h4 id="5-5-相对导入和绝对导入"><a href="#5-5-相对导入和绝对导入" class="headerlink" title="5.5 相对导入和绝对导入"></a>5.5 相对导入和绝对导入</h4><p>顶级包的概念和入口文件的位置相关, 与入口文件同级的包，就是该包下所有模块的顶级包。对于入口文件来说，不存在包的概念。</p>
+<p>绝对导入/绝对路径： 从顶级包到被导入模块的完整路径；<br>相对导入：一个’.’表示当前包，两个’..’表示上一级包，’…’上上级包，以此类推。<br>举例如图：在m2.py中不可能直接导入pk3下边的模块，因为这超越了其顶级包pk2(当main.py作为入口文件时):</p>
+<img src="/2018/06/27/五、python的包、模块、函数及变量作用域/package_a_i.png" title="包的导入(a)">
+<p>注意：<br>import不支持相对导入，from .. import .. 支持相对导入；<br>入口文件因为没有包的概念，故入口文件不能使用相对导入(因为作为入口文件<strong>name</strong>会自动改变为 <strong>main</strong>, 而相对导入是根据<strong>name</strong>来确定路径的)，除非返回入口文件的上一层，用python -m 将入口文件作为普通模块进行运行，则可以进行相对导入；<br>使用相对导入不要超出顶级包(入口文件同级的都不能使用相对导入，需要放到包下面去)</p>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2018/06/27/五、python的包、模块、函数及变量作用域/" data-id="cjixctk4s000p50pepdlift4r" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/06/27/五、python的包、模块、函数及变量作用域/" data-id="cjiyega84000ccgpe6b9gqifu" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -325,6 +341,16 @@
         
 <nav id="article-nav">
     
+        <a href="/2018/06/28/六、Python中的函数/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            六、Python中的函数
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2018/06/27/C1-Python的分支、循环、条件与枚举/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
@@ -355,6 +381,26 @@
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/06/28/六、Python中的函数/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/06/28/六、Python中的函数/" class="title">六、Python中的函数</a></p>
+                            <p class="item-date"><time datetime="2018-06-28T10:21:18.000Z" itemprop="datePublished">2018-06-28</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -436,26 +482,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/05/26/C1-Python的基本类型/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
-                            <p class="item-title"><a href="/2018/05/26/C1-Python的基本类型/" class="title">一、Python的基本类型1--数字</a></p>
-                            <p class="item-date"><time datetime="2018-05-26T05:24:54.000Z" itemprop="datePublished">2018-05-26</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -475,7 +501,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">8</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">8</span></li></ul>
         </div>
     </div>
 
