@@ -7,16 +7,22 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="" />
+        <meta name="keywords" content="Python系统课程-C1" />
     
-    <meta property="og:type" content="article">
+    <meta name="description" content="6 Python中的函数6.1 初识python函数a.初步接触函数：了解查看一个函数可用： help(函数名);查看函数之禅： import this ;函数三大特点：功能性(实现某些功能)、隐藏细节(方便调用)、避免编写重复代码;示例如图：  b.函数定义及运行特点特点：a.自上而下的执行过程，函数需要先定义才能通过调用使用；b.定义函数或变量名时，要尽量避免和python的内置函数同名，">
+<meta name="keywords" content="Python系统课程-C1">
+<meta property="og:type" content="article">
 <meta property="og:title" content="六、Python中的函数">
 <meta property="og:url" content="http://yoursite.com/2018/06/28/六、Python中的函数/index.html">
 <meta property="og:site_name" content="Edisenの博客">
+<meta property="og:description" content="6 Python中的函数6.1 初识python函数a.初步接触函数：了解查看一个函数可用： help(函数名);查看函数之禅： import this ;函数三大特点：功能性(实现某些功能)、隐藏细节(方便调用)、避免编写重复代码;示例如图：  b.函数定义及运行特点特点：a.自上而下的执行过程，函数需要先定义才能通过调用使用；b.定义函数或变量名时，要尽量避免和python的内置函数同名，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-28T10:21:18.234Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/28/六、Python中的函数/py_function.png">
+<meta property="og:updated_time" content="2018-06-29T16:26:39.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="六、Python中的函数">
+<meta name="twitter:description" content="6 Python中的函数6.1 初识python函数a.初步接触函数：了解查看一个函数可用： help(函数名);查看函数之禅： import this ;函数三大特点：功能性(实现某些功能)、隐藏细节(方便调用)、避免编写重复代码;示例如图：  b.函数定义及运行特点特点：a.自上而下的执行过程，函数需要先定义才能通过调用使用；b.定义函数或变量名时，要尽量避免和python的内置函数同名，">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/28/六、Python中的函数/py_function.png">
     
 
     
@@ -141,7 +147,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    未分类
+    <a class="page-title-link" href="/categories/Python/">Python</a>
     </h1>
 </div>
                         <div class="main-body-content">
@@ -168,18 +174,39 @@
     </div>
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a>
+    </div>
+
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <h3 id="6-Python中的函数"><a href="#6-Python中的函数" class="headerlink" title="6 Python中的函数"></a>6 Python中的函数</h3><h4 id="6-1-初识python函数"><a href="#6-1-初识python函数" class="headerlink" title="6.1 初识python函数"></a>6.1 初识python函数</h4><p>a.初步接触函数：<br>了解查看一个函数可用： help(函数名);<br>查看函数之禅： import this ;<br>函数三大特点：功能性(实现某些功能)、隐藏细节(方便调用)、避免编写重复代码;<br>示例如图：</p>
+<img src="/2018/06/28/六、Python中的函数/py_function.png" title="初识python函数">
+<p>b.函数定义及运行特点<br>特点：<br>a.自上而下的执行过程，函数需要先定义才能通过调用使用；<br>b.定义函数或变量名时，要尽量避免和python的内置函数同名，<br>  系统默认递归次数为995次，超出在报错，可用import sys、setrecursionlimit(1000000)来设置递归次数，目前实际上达不到百万次的递归；<br>c.函数遇到return就会终止，不会再往下执行！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">def funcname(parameter_list):</span><br><span class="line">    pass</span><br><span class="line"><span class="comment"># def 用来声明是一个函数</span></span><br><span class="line"><span class="comment"># 参数列表可以没有</span></span><br><span class="line"><span class="comment"># 可在结尾用 return 返回值, 或者不返回：None</span></span><br><span class="line"></span><br><span class="line"><span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">def print(st):   # 函数名与内置print同名</span></span><br><span class="line"><span class="string">    print(st)    # 函数内部又调用，递归到死</span></span><br><span class="line"><span class="string">    			 # 没有返回值，就相当于 return none	</span></span><br><span class="line"><span class="string">"</span><span class="string">""</span></span><br><span class="line"></span><br><span class="line">def cys(cat,dog):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'I\'</span>m  a cat,my name is <span class="string">' + cat)</span></span><br><span class="line"><span class="string">    print('</span>hi,i\<span class="string">'m '</span> + dog + <span class="string">',and i\'</span>m a dog<span class="string">')</span></span><br><span class="line"><span class="string">    return (cat + '</span>|<span class="string">' + dog)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">house_animals = cys('</span>kitty<span class="string">','</span>samo<span class="string">')</span></span><br><span class="line"><span class="string">print(house_animals)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># result:</span></span><br><span class="line"><span class="string">	g:\Python\Demon2\pk1&gt;fc.py</span></span><br><span class="line"><span class="string">I'</span>m  a cat,my name is kitty</span><br><span class="line">hi,i<span class="string">'m samo,and i'</span>m a dog</span><br><span class="line">kitty|samo</span><br></pre></td></tr></table></figure>
+<h4 id="6-2-函数返回多个结果及接收"><a href="#6-2-函数返回多个结果及接收" class="headerlink" title="6.2 函数返回多个结果及接收"></a>6.2 函数返回多个结果及接收</h4><p>注意：<br>a.建议用有意义、有名称的变量来接收函数的返回结果(易于后期维护,涉及到‘序列解包’);<br>b.不建议用元组(tuple)的索引来进行解包操作取值(不够清楚，含糊不清);<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def cal(fruit,meat):</span><br><span class="line">    fruit_cal = fruit * 2</span><br><span class="line">    meat_cal = meat * 3</span><br><span class="line">    <span class="built_in">return</span> fruit_cal,meat_cal</span><br><span class="line"><span class="comment"># 输入食品名称(模糊查询，或者根据输入的字提示那些可查询)，</span></span><br><span class="line"><span class="comment"># 通过查询 食品名--卡里路表，返回卡里路的值</span></span><br><span class="line">cals = cal(<span class="string">'apple'</span>,<span class="string">'mutton'</span>)</span><br><span class="line"><span class="built_in">print</span>(cals[0],cals[1]) <span class="comment"># 不推荐使用这种方式接收函数返回值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(cals)) <span class="comment"># 为tuple(元组)类型</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#推荐此种方式(易于后期维护)</span></span><br><span class="line">orange_cal,egg_cal = cal(<span class="string">'orange'</span>,<span class="string">'egg'</span>)</span><br><span class="line"><span class="built_in">print</span>(orange_cal,egg_cal)</span><br></pre></td></tr></table></figure></p>
+<h4 id="6-3-序列解包与链式赋值"><a href="#6-3-序列解包与链式赋值" class="headerlink" title="6.3 序列解包与链式赋值"></a>6.3 序列解包与链式赋值</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a,b,c = 1,2,3 <span class="comment"># 多元赋值</span></span><br><span class="line"><span class="built_in">print</span>(a,b,c)</span><br><span class="line"></span><br><span class="line">d = 4,5,6</span><br><span class="line">q,w,e = d <span class="comment"># 序列解包：变量数要的等于序列中元素的个数</span></span><br><span class="line"><span class="built_in">print</span>(q,w,e)</span><br><span class="line"></span><br><span class="line">z=x=c = 99 <span class="comment"># 链式赋值</span></span><br><span class="line"><span class="built_in">print</span>(z,x,c)</span><br></pre></td></tr></table></figure>
+<h4 id="6-4-参数"><a href="#6-4-参数" class="headerlink" title="6.4 参数"></a>6.4 参数</h4><p>参数（关键在于函数调用而不是定义上）：<br>①必须参数：函数的参数列表中定义的必须赋值的参数。必须放在参数列表的前面。<br>②关键字参数：可以在函数调用时明确指出实参是传给哪个形参的，不一定要按照形参顺序。如：<br>def add(x, y):<br>    …<br>    return result<br>c = add(y = 3, x = 2)<br>③默认参数：没有设置默认值的参数必须传递实参。<br>④可变参数。如：<br>def demo(*param):<br>    print(param)<br>    print(type(param))<br>demo(1,2,3,4,5)<br>结果为：<br>1,2,3,4,5<br>tuple类型<br>也就是说python会自动将可变参数对应的实参转化成tuple类型。</p>
+<h5 id="6-4-1-必须参数和关键字参数"><a href="#6-4-1-必须参数和关键字参数" class="headerlink" title="6.4.1 必须参数和关键字参数"></a>6.4.1 必须参数和关键字参数</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def add(x,y):   <span class="comment"># 形参(必须参数，调用时必须一一赋值)</span></span><br><span class="line">    res = x+y</span><br><span class="line">    <span class="built_in">return</span> res</span><br><span class="line"></span><br><span class="line">sum = add(1,2) <span class="comment"># 实参</span></span><br><span class="line"><span class="built_in">print</span>(sum)</span><br><span class="line"></span><br><span class="line">rt = add(y=3,x=8) <span class="comment"># 关键字参数 顺序随意，提高可读性</span></span><br></pre></td></tr></table></figure>
+<h5 id="6-4-2-默认参数"><a href="#6-4-2-默认参数" class="headerlink" title="6.4.2 默认参数"></a>6.4.2 默认参数</h5><p>注意：<br>①所有非默认参数必须在所有默认参数前，不论定义函数还是调用时都是一样。<br>②要想向某一特定默认参数传递参数应该使用关键字参数指定要改变的默认参数，否则将根据默认参数顺序依次匹配。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#默认参数必须放在非默认参数后面</span></span><br><span class="line">def pri_stu_info(name,gender=<span class="string">'male'</span>,age = 18,province=<span class="string">'ShenZhen'</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'姓名： '</span> + name)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'性别： '</span> + gender)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'年龄： '</span> + str(age))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'籍贯： '</span> + province)</span><br><span class="line">pri_stu_info(<span class="string">'Tina'</span>,<span class="string">'female'</span>,15,<span class="string">'Henan'</span>)</span><br><span class="line">pri_stu_info(<span class="string">'Tom'</span>,<span class="string">'male'</span>,16)  <span class="comment"># 按照顺序就不需要通过关键字来赋值</span></span><br><span class="line">pri_stu_info(<span class="string">'LiLi'</span>,<span class="string">'fmale'</span>)</span><br><span class="line"><span class="comment"># 必须通过关键字来赋值,否则会按照顺序，重新赋值</span></span><br><span class="line">pri_stu_info(<span class="string">'XiaoBai'</span>,<span class="string">'fmale'</span>,<span class="string">'ShanDong'</span>) </span><br><span class="line">pri_stu_info(<span class="string">'Jade'</span>,gender=<span class="string">'female'</span>,province=<span class="string">'BeiJing'</span>) </span><br><span class="line"><span class="comment">#会报错，非默认参数必须在默认参数前，27没有遵循</span></span><br><span class="line">pri_stu_info(<span class="string">'Albee'</span>,gender=<span class="string">'female'</span>,27,province=<span class="string">'BeiJing'</span>)</span><br></pre></td></tr></table></figure></p>
+<h5 id="6-4-3-可变参数"><a href="#6-4-3-可变参数" class="headerlink" title="6.4.3 可变参数"></a>6.4.3 可变参数</h5><p>a. 定义一个拥有可变参数的函数: 括号内形参前加星号<em>,<br>python会把可变参数列表（实参）组装成一个元组tuple;<br>b. 调用可变参数函数时，实参里直接把所有参数一一列出，用逗号隔开即可;<br>c. 如果要传递的参数本省是一个tuple，为了避免结果出现二维tuple(即两个括号）的情况，在调用函数时实参括号里也加上星号</em>。*的作用相当于解包，即把元组里的每个元素平铺传入可变参数函数中。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">def vf(*param):</span><br><span class="line">    <span class="built_in">print</span>(param)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(param))</span><br><span class="line"><span class="comment">#必须参数、可变参数、默认参数(完全没必要搞的这么复杂)</span></span><br><span class="line">def vf2(param1,*param,param2 = 2): </span><br><span class="line">    <span class="built_in">print</span>(param1,param2,param)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(param))</span><br><span class="line"></span><br><span class="line">vf(1,2,3) <span class="comment"># 会自动转换为一个元组</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'==1==='</span>)</span><br><span class="line">vf((1,2,3)) <span class="comment"># 传入的是元组，自动转换为2维元组</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'==2==='</span>)</span><br><span class="line">a = (1,2,3)</span><br><span class="line">vf(*a) <span class="comment"># * 将元组 a 平铺开来，再传给函数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'==3==='</span>)</span><br><span class="line">vf2(<span class="string">'yes'</span>,1,2,3,param2=<span class="string">'22'</span>)</span><br><span class="line"><span class="comment">#result:</span></span><br><span class="line">g:\Python\Demon2\pk1&gt;f6.py</span><br><span class="line">(1, 2, 3)</span><br><span class="line">&lt;class <span class="string">'tuple'</span>&gt;</span><br><span class="line">==1===</span><br><span class="line">((1, 2, 3),)</span><br><span class="line">&lt;class <span class="string">'tuple'</span>&gt;</span><br><span class="line">==2===</span><br><span class="line">(1, 2, 3)</span><br><span class="line">&lt;class <span class="string">'tuple'</span>&gt;</span><br><span class="line">==3===</span><br><span class="line">yes 22 (1, 2, 3)</span><br><span class="line">&lt;class <span class="string">'tuple'</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>PS: 没必要死记各种参数之间的顺序，函数参数列表设计的要简约一些。</p>
+<h5 id="6-4-4-关键字可变参数"><a href="#6-4-4-关键字可变参数" class="headerlink" title="6.4.4 关键字可变参数"></a>6.4.4 关键字可变参数</h5><p>关键字可变参数：<br>格式：<br>def demo(<strong>param):<br>    pass<br>这样在调用时可以传递多个关键字参数，此时python会将其转化为字典类型dict。若还想传递字典类型而不转化为多维数组，调用时需加上</strong>。<br>小技巧：<br>遍历字典类型数据方法：<br>for key,value in param.items():<br>    print(key, ‘:’, value)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关键字可变参数</span></span><br><span class="line">def city_tem(**param):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'传入的参数变为：'</span>+str(param))</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(param))</span><br><span class="line">    <span class="keyword">for</span> city,tem <span class="keyword">in</span> param.items():</span><br><span class="line">        <span class="built_in">print</span>(city + <span class="string">' : '</span> + tem)</span><br><span class="line"></span><br><span class="line">city_tem(nj=<span class="string">'32c'</span>,bj=<span class="string">'29c'</span>,gs=<span class="string">'25c'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'======='</span>)</span><br><span class="line"></span><br><span class="line">ct = &#123;<span class="string">'NanJing'</span>:<span class="string">'32C'</span>,<span class="string">'BeiJing'</span>:<span class="string">'29C'</span>,<span class="string">'GanSu'</span>:<span class="string">'25C'</span>&#125;</span><br><span class="line">city_tem(**ct)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Result:</span></span><br><span class="line">g:\Python\Demon2\pk1&gt;f7.py</span><br><span class="line">传入的参数变为：&#123;<span class="string">'nj'</span>: <span class="string">'32c'</span>, <span class="string">'bj'</span>: <span class="string">'29c'</span>, <span class="string">'gs'</span>: <span class="string">'25c'</span>&#125;</span><br><span class="line">&lt;class <span class="string">'dict'</span>&gt;</span><br><span class="line">nj : 32c</span><br><span class="line">bj : 29c</span><br><span class="line">gs : 25c</span><br><span class="line">=======</span><br><span class="line">传入的参数变为：&#123;<span class="string">'NanJing'</span>: <span class="string">'32C'</span>, <span class="string">'BeiJing'</span>: <span class="string">'29C'</span>, <span class="string">'GanSu'</span>: <span class="string">'25C'</span>&#125;</span><br><span class="line">&lt;class <span class="string">'dict'</span>&gt;</span><br><span class="line">NanJing : 32C</span><br><span class="line">BeiJing : 29C</span><br><span class="line">GanSu : 25C</span><br></pre></td></tr></table></figure>
+<h5 id="6-4-5-变量作用域"><a href="#6-4-5-变量作用域" class="headerlink" title="6.4.5 变量作用域"></a>6.4.5 变量作用域</h5><p>a. 局部变量和全局变量<br>python中可以在for循环外部访问for循环内部定义的变量，if-else和while也是如此;<br>因为在python里for、while和if-else不能形成作用域,所以其中的变量视作与函数内变量同一级别。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">def demon():</span><br><span class="line">    c =  3 <span class="comment"># 局部变量(在函数中优先级比全局变量高) </span></span><br><span class="line">    <span class="built_in">print</span>(c)</span><br><span class="line">c = 12 <span class="comment"># 全局变量 </span></span><br><span class="line">demon()</span><br><span class="line"></span><br><span class="line">def cat():</span><br><span class="line">    b = 1</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(0,9):</span><br><span class="line">        s = <span class="string">'s'</span> <span class="comment">#for内部</span></span><br><span class="line">        b += 1 <span class="comment">#这里可以引用b,还在函数cat()内部</span></span><br><span class="line">    <span class="built_in">print</span>(s) <span class="comment">#可以在for循环外边访问for循环内部的变量</span></span><br><span class="line">    <span class="built_in">print</span>(b)</span><br><span class="line">cat()</span><br><span class="line"></span><br><span class="line">m = 0</span><br><span class="line">def func1():</span><br><span class="line">    <span class="comment">#m = 1 #作用域链(逐级寻找)</span></span><br><span class="line">    def func2():</span><br><span class="line">        <span class="comment">#m = 2</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'m = '</span>+str(m))</span><br><span class="line">    func2()</span><br><span class="line"></span><br><span class="line">func1()</span><br></pre></td></tr></table></figure></p>
+<p>b.global关键字<br>在整个应用程序里都可以使用, 而不仅仅是在模块中使用；<br>示例如图：</p>
+<img src="/2018/06/28/六、Python中的函数/global_test.png" title="global变量使用">
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2018/06/28/六、Python中的函数/" data-id="cjiyega8j000pcgpev62cf281" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/06/28/六、Python中的函数/" data-id="cjj092rs8000u04pe2s9fnmbd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -292,6 +319,16 @@
         
 <nav id="article-nav">
     
+        <a href="/2018/06/30/七、面向对象/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            七、面向对象
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2018/06/27/五、python的包、模块、函数及变量作用域/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
@@ -326,7 +363,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/06/28/六、Python中的函数/" class="thumbnail">
+                            <a href="/2018/06/30/七、面向对象/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -337,7 +374,27 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
+                            <p class="item-title"><a href="/2018/06/30/七、面向对象/" class="title">七、面向对象</a></p>
+                            <p class="item-date"><time datetime="2018-06-29T16:33:16.000Z" itemprop="datePublished">2018-06-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/06/28/六、Python中的函数/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/06/28/六、Python中的函数/py_function.png)" alt="六、Python中的函数" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
                             <p class="item-title"><a href="/2018/06/28/六、Python中的函数/" class="title">六、Python中的函数</a></p>
                             <p class="item-date"><time datetime="2018-06-28T10:21:18.000Z" itemprop="datePublished">2018-06-28</time></p>
                         </div>
@@ -403,26 +460,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/05/27/C1-Python中组的概念/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/05/27/C1-Python中组的概念/python_basic_data_types.png)" alt="二、Python基础类型2--组的概念" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
-                            <p class="item-title"><a href="/2018/05/27/C1-Python中组的概念/" class="title">二、Python基础类型2--组的概念</a></p>
-                            <p class="item-date"><time datetime="2018-05-27T08:03:05.000Z" itemprop="datePublished">2018-05-27</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -432,7 +469,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">8</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">10</span></li></ul>
         </div>
     </div>
 
@@ -442,7 +479,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">8</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">8</span></li></ul>
         </div>
     </div>
 
@@ -452,7 +489,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python基础语法/">Python基础语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a><span class="tag-list-count">5</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python基础语法/">Python基础语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a><span class="tag-list-count">7</span></li></ul>
         </div>
     </div>
 
