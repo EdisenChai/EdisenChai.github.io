@@ -7,16 +7,22 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="" />
+        <meta name="keywords" content="Python系统课程-C1" />
     
-    <meta property="og:type" content="article">
+    <meta name="description" content="11 原生爬虫11.1 爬虫前奏爬虫前奏a.明确目的b.找到数据对应的网页c.分析网页的结构找到数据所在的标签位置d.模拟http请求,向服务器发送这个请求,获取到服务器返回给我们的html(返回的是完整的html数据);    用正则表达式提取我们需要的数据 11.2 爬虫及断点调试a.断点打好，F5运行–F10单步–F5跳断点(从一个断点跳到下一个断点)–F11进入某个对象或函数的内部;b.">
+<meta name="keywords" content="Python系统课程-C1">
+<meta property="og:type" content="article">
 <meta property="og:title" content="十一、实战：原生爬虫">
 <meta property="og:url" content="http://yoursite.com/2018/07/04/十一、实战：原生爬虫/index.html">
 <meta property="og:site_name" content="Edisenの博客">
+<meta property="og:description" content="11 原生爬虫11.1 爬虫前奏爬虫前奏a.明确目的b.找到数据对应的网页c.分析网页的结构找到数据所在的标签位置d.模拟http请求,向服务器发送这个请求,获取到服务器返回给我们的html(返回的是完整的html数据);    用正则表达式提取我们需要的数据 11.2 爬虫及断点调试a.断点打好，F5运行–F10单步–F5跳断点(从一个断点跳到下一个断点)–F11进入某个对象或函数的内部;b.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-04T05:22:56.081Z">
+<meta property="og:image" content="http://yoursite.com/2018/07/04/十一、实战：原生爬虫/spider.png">
+<meta property="og:updated_time" content="2018-07-06T12:19:43.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="十一、实战：原生爬虫">
+<meta name="twitter:description" content="11 原生爬虫11.1 爬虫前奏爬虫前奏a.明确目的b.找到数据对应的网页c.分析网页的结构找到数据所在的标签位置d.模拟http请求,向服务器发送这个请求,获取到服务器返回给我们的html(返回的是完整的html数据);    用正则表达式提取我们需要的数据 11.2 爬虫及断点调试a.断点打好，F5运行–F10单步–F5跳断点(从一个断点跳到下一个断点)–F11进入某个对象或函数的内部;b.">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/04/十一、实战：原生爬虫/spider.png">
     
 
     
@@ -141,7 +147,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    未分类
+    <a class="page-title-link" href="/categories/Python/">Python</a>
     </h1>
 </div>
                         <div class="main-body-content">
@@ -168,18 +174,27 @@
     </div>
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a>
+    </div>
+
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <h3 id="11-原生爬虫"><a href="#11-原生爬虫" class="headerlink" title="11 原生爬虫"></a>11 原生爬虫</h3><h4 id="11-1-爬虫前奏"><a href="#11-1-爬虫前奏" class="headerlink" title="11.1 爬虫前奏"></a>11.1 爬虫前奏</h4><p>爬虫前奏<br>a.明确目的<br>b.找到数据对应的网页<br>c.分析网页的结构找到数据所在的标签位置<br>d.模拟http请求,向服务器发送这个请求,获取到服务器返回给我们的html(返回的是完整的html数据);<br>    用正则表达式提取我们需要的数据</p>
+<h4 id="11-2-爬虫及断点调试"><a href="#11-2-爬虫及断点调试" class="headerlink" title="11.2 爬虫及断点调试"></a>11.2 爬虫及断点调试</h4><p>a.断点打好，F5运行–F10单步–F5跳断点(从一个断点跳到下一个断点)–F11进入某个对象或函数的内部;<br>b. 作用：鼠标悬停在变量上方后会出现变量的状态，可看到相应的属性和值。</p>
+<p>初级代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">from urllib import request</span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line">class Spider():</span><br><span class="line">    url = <span class="string">'https://www.panda.tv/cate/lol?pdt=1.24.s1.3.1loapcheq15'</span></span><br><span class="line">    <span class="comment"># 设置中间 匹配 所有 且非贪婪</span></span><br><span class="line">    root_pattern = <span class="string">'&lt;div class="video-info"&gt;[\s\S]*?&lt;/div&gt;'</span></span><br><span class="line">    <span class="comment"># __私有方法</span></span><br><span class="line">    def __fetch_content(self):</span><br><span class="line">        <span class="comment"># 爬取网页的初始数据</span></span><br><span class="line">        r = request.urlopen(Spider.url)</span><br><span class="line">        <span class="comment">#print(r)</span></span><br><span class="line">        htmls = r.read()</span><br><span class="line">        htmls = str(htmls, encoding=<span class="string">'utf-8'</span>) <span class="comment"># 得到的数据进行转码</span></span><br><span class="line">        a = 2</span><br><span class="line">        <span class="comment">#print(htmls)</span></span><br><span class="line">        <span class="built_in">return</span> htmls</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 对初始数据进行处理</span></span><br><span class="line">    def __analysis(self,htmls):</span><br><span class="line">        <span class="comment">#得到所有names的数据列表：infos</span></span><br><span class="line">        infos = re.findall(Spider.root_pattern,htmls)</span><br><span class="line">        <span class="comment">#print(type(infos))</span></span><br><span class="line">        <span class="comment">#print(infos[1])</span></span><br><span class="line">        name_pattern = <span class="string">'&lt;/i&gt;[\w\W]*?&lt;/span&gt;'</span></span><br><span class="line">        number_pattern = <span class="string">'&lt;span class="video-number"&gt;(.*)&lt;/span&gt;'</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> names <span class="keyword">in</span> infos:</span><br><span class="line">            <span class="comment">#提取处理</span></span><br><span class="line">            number_groups = re.search(number_pattern,names)</span><br><span class="line">            number = number_groups.group(1)</span><br><span class="line"></span><br><span class="line">            name_pre = re.findall(name_pattern,names)</span><br><span class="line">            <span class="comment"># print(name_pre[0])</span></span><br><span class="line">            name_no_space = name_pre[0].replace(<span class="string">'\n'</span>,<span class="string">''</span>)</span><br><span class="line">            name_space = re.search(<span class="string">'&lt;/i&gt;(.*)&lt;/span&gt;'</span>,name_no_space)</span><br><span class="line">            name = name_space.group(1).replace(<span class="string">' '</span>,<span class="string">''</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'主播：'</span>+name+<span class="string">",  人气： "</span>+number)</span><br><span class="line">        </span><br><span class="line">    def go(self):</span><br><span class="line">        htmls = self.__fetch_content()</span><br><span class="line">        self.__analysis(htmls)</span><br><span class="line"></span><br><span class="line">spider = Spider()</span><br><span class="line">spider.go()</span><br></pre></td></tr></table></figure></p>
+<img src="/2018/07/04/十一、实战：原生爬虫/spider.png" title="爬虫">
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2018/07/04/十一、实战：原生爬虫/" data-id="cjj9k68wy000xkspezmcude5k" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/07/04/十一、实战：原生爬虫/" data-id="cjj9y8mlc001a8gpeugtfhrii" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -359,7 +374,7 @@
                             <a href="/2018/07/04/十一、实战：原生爬虫/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/2018/07/04/十一、实战：原生爬虫/spider.png)" alt="十一、实战：原生爬虫" class="thumbnail-image"></span>
     
     
 </a>
@@ -367,7 +382,7 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
                             <p class="item-title"><a href="/2018/07/04/十一、实战：原生爬虫/" class="title">十一、实战：原生爬虫</a></p>
                             <p class="item-date"><time datetime="2018-07-04T05:22:56.000Z" itemprop="datePublished">2018-07-04</time></p>
                         </div>
@@ -442,7 +457,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">14</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">15</span></li></ul>
         </div>
     </div>
 
@@ -462,7 +477,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python基础语法/">Python基础语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a><span class="tag-list-count">11</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python基础语法/">Python基础语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a><span class="tag-list-count">12</span></li></ul>
         </div>
     </div>
 
