@@ -3,24 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>2. 解析库的使用 | Edisenの博客</title>
+    <title>3-data-stored | Edisenの博客</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="网络爬虫" />
     
-    <meta name="description" content="2. 解析库的使用2.1 XPath的使用XPath: 斗鱼LOL直播排名爬取 1234567891011121314151617181920212223242526272829303132333435363738394041&quot;&quot;&quot; 爬取斗鱼LOL主播实时排名 &quot;&quot;&quot;import requestsfrom lxml import etreeclass DouYuSpider():    &quot;&quot;&quot; 爬">
-<meta name="keywords" content="网络爬虫">
+    <meta name="keywords" content="网络爬虫">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2. 解析库的使用">
-<meta property="og:url" content="http://yoursite.com/2018/07/10/2-解析库的使用/index.html">
+<meta property="og:title" content="3-data-stored">
+<meta property="og:url" content="http://yoursite.com/2018/07/12/3-data-stored/index.html">
 <meta property="og:site_name" content="Edisenの博客">
-<meta property="og:description" content="2. 解析库的使用2.1 XPath的使用XPath: 斗鱼LOL直播排名爬取 1234567891011121314151617181920212223242526272829303132333435363738394041&quot;&quot;&quot; 爬取斗鱼LOL主播实时排名 &quot;&quot;&quot;import requestsfrom lxml import etreeclass DouYuSpider():    &quot;&quot;&quot; 爬">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-12T13:37:58.344Z">
+<meta property="og:updated_time" content="2018-07-12T13:53:07.513Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2. 解析库的使用">
-<meta name="twitter:description" content="2. 解析库的使用2.1 XPath的使用XPath: 斗鱼LOL直播排名爬取 1234567891011121314151617181920212223242526272829303132333435363738394041&quot;&quot;&quot; 爬取斗鱼LOL主播实时排名 &quot;&quot;&quot;import requestsfrom lxml import etreeclass DouYuSpider():    &quot;&quot;&quot; 爬">
+<meta name="twitter:title" content="3-data-stored">
     
 
     
@@ -149,14 +146,14 @@
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-2-解析库的使用" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-3-data-stored" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        2. 解析库的使用
+        3-data-stored
         </h1>
     
 
@@ -166,8 +163,8 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2018/07/10/2-解析库的使用/" class="article-date">
-            <time datetime="2018-07-10T01:13:42.000Z" itemprop="datePublished">2018-07-10</time>
+        <a href="/2018/07/12/3-data-stored/" class="article-date">
+            <time datetime="2018-07-12T13:52:26.000Z" itemprop="datePublished">2018-07-12</time>
         </a>
     </div>
 
@@ -181,16 +178,14 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <h3 id="2-解析库的使用"><a href="#2-解析库的使用" class="headerlink" title="2. 解析库的使用"></a>2. 解析库的使用</h3><h4 id="2-1-XPath的使用"><a href="#2-1-XPath的使用" class="headerlink" title="2.1 XPath的使用"></a>2.1 XPath的使用</h4><p>XPath: 斗鱼LOL直播排名爬取</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""</span><span class="string">" </span></span><br><span class="line"><span class="string">爬取斗鱼LOL主播实时排名 </span></span><br><span class="line"><span class="string">"</span><span class="string">""</span></span><br><span class="line">import requests</span><br><span class="line">from lxml import etree</span><br><span class="line"></span><br><span class="line">class DouYuSpider():</span><br><span class="line"></span><br><span class="line">    <span class="string">""</span><span class="string">" 爬虫类 "</span><span class="string">""</span></span><br><span class="line">    </span><br><span class="line">    url = <span class="string">'https://www.douyu.com/directory/game/LOL'</span></span><br><span class="line"></span><br><span class="line">    def get_contents(self):</span><br><span class="line">        <span class="string">""</span><span class="string">" 获取网页源码并做简单处理(结果存放到dic里) "</span><span class="string">""</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 利用requests中的get()方法快速得到页面源码</span></span><br><span class="line">        reponse = requests.get(DouYuSpider.url)</span><br><span class="line">        root_htmls = reponse.text <span class="comment"># str类型</span></span><br><span class="line">        <span class="comment">#print(root_htmls)</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#利用HTML类将其初始化，构建一XPath解析对象</span></span><br><span class="line">        htmls = etree.HTML(root_htmls)<span class="comment"># &lt;Element html at 0x2bd9698&gt;</span></span><br><span class="line">        <span class="comment"># htmls = etree.tostring(htmls, encoding = 'utf-8') #结果是bytes类型</span></span><br><span class="line">        <span class="comment"># htmls = htmls.decode('utf-8') #转化为str类型</span></span><br><span class="line">        names = htmls.xpath(<span class="string">'//span[@class="dy-name ellipsis fl"]/text()'</span>)</span><br><span class="line">        <span class="comment">#print(names)</span></span><br><span class="line">        numbers = htmls.xpath(<span class="string">'//span[@class="dy-num fr"  ]/text()'</span>)</span><br><span class="line">        <span class="comment">#print(numbers)</span></span><br><span class="line">        name_number = []</span><br><span class="line">        <span class="keyword">for</span> index <span class="keyword">in</span> range(0,len(names)):</span><br><span class="line">            name_number.append(&#123;<span class="string">'name'</span>:names[index], <span class="string">'number'</span>:numbers[index]&#125;)</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">print</span>(name_number)</span><br><span class="line"></span><br><span class="line">       </span><br><span class="line">    def go(self):</span><br><span class="line">        <span class="string">""</span><span class="string">" 入口函数 "</span><span class="string">""</span></span><br><span class="line">        self.get_contents()</span><br><span class="line"></span><br><span class="line">douyu = DouYuSpider()</span><br><span class="line">douyu.go()</span><br></pre></td></tr></table></figure>
-
+            
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2018/07/10/2-解析库的使用/" data-id="cjjim6fom0000e4pew1t5ylhk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/07/12/3-data-stored/" data-id="cjjim6fpi0004e4pesm8we8fm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -303,20 +298,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/07/12/3-data-stored/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            3-data-stored
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2018/07/09/1-学习爬虫的基本库/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/07/10/2-解析库的使用/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">1.学习爬虫的基本库</p>
+        <p class="article-nav-title">2. 解析库的使用</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -539,7 +524,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://yoursite.com/2018/07/10/2-解析库的使用/';
+    var disqus_url = 'http://yoursite.com/2018/07/12/3-data-stored/';
     
     (function() {
     var dsq = document.createElement('script');
