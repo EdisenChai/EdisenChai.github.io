@@ -18,7 +18,7 @@
 <meta property="og:description" content="2. 解析库的使用2.1 XPath的使用先利用htmls = etree.HTML(root_htmls)或打开一个本地文本文件htmls = etree.parse(‘test.html’, etree.HTMLParser())构建一个XPath对象(htmls), 接着利用其xpath方法获取目标节点、节点属性、节点文本等信息:a. 获取所有节点：htmls.xpath(‘//*’) ;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/07/10/2-解析库的使用/pikaqiu.png">
-<meta property="og:updated_time" content="2018-07-13T12:58:14.872Z">
+<meta property="og:updated_time" content="2018-07-13T13:11:36.560Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2. 解析库的使用">
 <meta name="twitter:description" content="2. 解析库的使用2.1 XPath的使用先利用htmls = etree.HTML(root_htmls)或打开一个本地文本文件htmls = etree.parse(‘test.html’, etree.HTMLParser())构建一个XPath对象(htmls), 接着利用其xpath方法获取目标节点、节点属性、节点文本等信息:a. 获取所有节点：htmls.xpath(‘//*’) ;">
@@ -213,7 +213,8 @@
 <ol start="4">
 <li>方法选择器<br>适用比较复杂的选取时用;<br>1.find_all()<br>find_all(name, attrs, recursive, text, **kwargs)</li>
 </ol>
-<p>a. name(根据节点名查询元素)<br>比如：<ul><li></li></ul>,<ul><li></li></ul>,<ul><li></li></ul><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">uls = soup.find_all(name= <span class="string">'ul'</span>) <span class="comment">#得到是一个所有ul的list</span></span><br><span class="line"><span class="keyword">for</span> ul <span class="keyword">in</span> uls:</span><br><span class="line">	<span class="comment">#print(ul.find_all(name= 'li')) #得到的是ul中所有li的list</span></span><br><span class="line">	<span class="keyword">for</span> li <span class="keyword">in</span> ul.find_all(name= <span class="string">'li'</span>)</span><br><span class="line">	<span class="built_in">print</span>(li.string)</span><br></pre></td></tr></table></figure></p>
+<p>a. name(根据节点名查询元素)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#比如：&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;,&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;,&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;</span></span><br><span class="line">uls = soup.find_all(name= <span class="string">'ul'</span>) <span class="comment">#得到是一个所有ul的list</span></span><br><span class="line"><span class="keyword">for</span> ul <span class="keyword">in</span> uls:</span><br><span class="line">	<span class="comment">#print(ul.find_all(name= 'li')) #得到的是ul中所有li的list</span></span><br><span class="line">	<span class="keyword">for</span> li <span class="keyword">in</span> ul.find_all(name= <span class="string">'li'</span>)</span><br><span class="line">	<span class="built_in">print</span>(li.string)</span><br></pre></td></tr></table></figure>
 <p>b. attrs(根据属性查询元素)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">soup.find_all(attrs=&#123;<span class="string">'id'</span>: <span class="string">'cat'</span>&#125;) <span class="comment"># 参数类型为dict类型</span></span><br><span class="line">soup.find_all(attrs=&#123;<span class="string">'name'</span>: <span class="string">'mini'</span>&#125;) <span class="comment"># 返回结果是list</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#常用参数可以不通过attrs来传递</span></span><br><span class="line">soup.find_all(id=<span class="string">'cat'</span>)</span><br><span class="line">soup.find_all(class_=<span class="string">'hyk'</span>) <span class="comment"># class为python关键字，加_以示区别 </span></span><br><span class="line"></span><br><span class="line">```  </span><br><span class="line">c. text</span><br><span class="line">通过传入字符串或正则表达式对象来匹配节点的文本。</span><br><span class="line">``` bash</span><br><span class="line">htmls = <span class="string">'&lt;a&gt;hi link&lt;/a&gt;  &lt;b&gt;hello link&lt;/b&gt;'</span></span><br><span class="line">text = re.compile(<span class="string">'link'</span>)</span><br><span class="line">soup.find_all(text= text)</span><br><span class="line"><span class="comment"># 返回结果为：['hi link','hello link']</span></span><br><span class="line"><span class="comment">#返回所有匹配正则表达式的节点文本组成的列表</span></span><br></pre></td></tr></table></figure></p>
 <p>2.find()<br>与find_all()用法基本一样，只不过find_all返回的是所有匹配的元素组成的list；<br>find()返回的是第一个匹配的元素，返回的是单个元素。</p>
 <p>5.CSS选择器<br>只需要调用select()方法，传入相应的CSS选择器即可。<br>CSS选择器：. 表示class， # 表示 id<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">soup.select(<span class="string">'ul li'</span>) <span class="comment"># 选择所有ul节点下的所有li</span></span><br><span class="line">soup.(<span class="string">'#cat .mini'</span>) <span class="comment">#选择所有id=cat,class=mini的节点元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 嵌套选择(Tag类型都可以)</span></span><br><span class="line"><span class="keyword">for</span> ul <span class="keyword">in</span> soup.select(<span class="string">'ul'</span>):</span><br><span class="line">	<span class="built_in">print</span>(ul.select(<span class="string">'li'</span>))</span><br><span class="line">	</span><br><span class="line"><span class="comment">#获取属性</span></span><br><span class="line"><span class="keyword">for</span> ul <span class="keyword">in</span> soup.select(<span class="string">'ul'</span>):</span><br><span class="line">	<span class="built_in">print</span>(ul[<span class="string">'id'</span>]) <span class="comment">#直接传入[]和属性名</span></span><br><span class="line">	<span class="built_in">print</span>(ul.attrs[<span class="string">'id'</span>]) <span class="comment">#通过attrs</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">#获取文本</span></span><br><span class="line"><span class="keyword">for</span> li <span class="keyword">in</span> soup.select(<span class="string">'li'</span>):</span><br><span class="line">	<span class="built_in">print</span>(li.string)　<span class="comment">#利用string属性获取文本</span></span><br><span class="line">	<span class="built_in">print</span>(li.get_text())<span class="comment">#利用get_text()方法</span></span><br></pre></td></tr></table></figure></p>
@@ -251,7 +252,7 @@
 
 
 
-    <a data-url="http://yoursite.com/2018/07/10/2-解析库的使用/" data-id="cjjjzr24m0001e0pe76xv40qj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/07/10/2-解析库的使用/" data-id="cjjlep1is000000pec1w0yc9m" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -408,10 +409,30 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/07/12/3-data-stored/" class="thumbnail">
+                            <a href="/2018/07/14/4-Ajax-getData/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python爬虫/">Python爬虫</a></p>
+                            <p class="item-title"><a href="/2018/07/14/4-Ajax-getData/" class="title">4. Ajax数据爬取</a></p>
+                            <p class="item-date"><time datetime="2018-07-14T12:45:28.000Z" itemprop="datePublished">2018-07-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/12/3-data-stored/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/07/12/3-data-stored/json_save1.png)" alt="3. 数据存储" class="thumbnail-image"></span>
     
     
 </a>
@@ -485,26 +506,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/07/04/十一、实战：原生爬虫/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/07/04/十一、实战：原生爬虫/spider.png)" alt="十一、实战：原生爬虫" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
-                            <p class="item-title"><a href="/2018/07/04/十一、实战：原生爬虫/" class="title">十一、实战：原生爬虫</a></p>
-                            <p class="item-date"><time datetime="2018-07-04T05:22:56.000Z" itemprop="datePublished">2018-07-04</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -514,7 +515,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python爬虫/">Python爬虫</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python爬虫/">Python爬虫</a><span class="category-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -524,7 +525,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">8</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">8</span></li></ul>
         </div>
     </div>
 
@@ -534,7 +535,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python基础语法/">Python基础语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络爬虫/">网络爬虫</a><span class="tag-list-count">3</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python基础语法/">Python基础语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络爬虫/">网络爬虫</a><span class="tag-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -544,7 +545,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Python基础语法/" style="font-size: 10px;">Python基础语法</a> <a href="/tags/Python系统课程-C1/" style="font-size: 20px;">Python系统课程-C1</a> <a href="/tags/网络爬虫/" style="font-size: 10px;">网络爬虫</a>
+            <a href="/tags/Python基础语法/" style="font-size: 10px;">Python基础语法</a> <a href="/tags/Python系统课程-C1/" style="font-size: 20px;">Python系统课程-C1</a> <a href="/tags/网络爬虫/" style="font-size: 15px;">网络爬虫</a>
         </div>
     </div>
 
