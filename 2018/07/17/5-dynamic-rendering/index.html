@@ -9,18 +9,18 @@
     
         <meta name="keywords" content="网络爬虫" />
     
-    <meta name="description" content="5. Selenium与Splash的使用####5.1 Selenium的使用 12345678910111213141516171819202122232425262728293031323334353637from selenium import webdriverimport osimport timeabspath = os.path.abspath(r&quot;C:\Program Files">
+    <meta name="description" content="5. Selenium与Splash的使用####5.1 Selenium的使用  查找节点、节点交互操作  12345678910111213141516171819202122232425262728293031323334353637from selenium import webdriverimport osimport timeabspath = os.path.abspath(r&quot;C:">
 <meta name="keywords" content="网络爬虫">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5-Selenium与Splash的使用">
 <meta property="og:url" content="http://yoursite.com/2018/07/17/5-dynamic-rendering/index.html">
 <meta property="og:site_name" content="Edisenの博客">
-<meta property="og:description" content="5. Selenium与Splash的使用####5.1 Selenium的使用 12345678910111213141516171819202122232425262728293031323334353637from selenium import webdriverimport osimport timeabspath = os.path.abspath(r&quot;C:\Program Files">
+<meta property="og:description" content="5. Selenium与Splash的使用####5.1 Selenium的使用  查找节点、节点交互操作  12345678910111213141516171819202122232425262728293031323334353637from selenium import webdriverimport osimport timeabspath = os.path.abspath(r&quot;C:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-17T13:35:38.997Z">
+<meta property="og:updated_time" content="2018-07-18T09:02:57.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="5-Selenium与Splash的使用">
-<meta name="twitter:description" content="5. Selenium与Splash的使用####5.1 Selenium的使用 12345678910111213141516171819202122232425262728293031323334353637from selenium import webdriverimport osimport timeabspath = os.path.abspath(r&quot;C:\Program Files">
+<meta name="twitter:description" content="5. Selenium与Splash的使用####5.1 Selenium的使用  查找节点、节点交互操作  12345678910111213141516171819202122232425262728293031323334353637from selenium import webdriverimport osimport timeabspath = os.path.abspath(r&quot;C:">
     
 
     
@@ -182,15 +182,37 @@
         
         <div class="article-entry" itemprop="articleBody">
             <h3 id="5-Selenium与Splash的使用"><a href="#5-Selenium与Splash的使用" class="headerlink" title="5. Selenium与Splash的使用"></a>5. Selenium与Splash的使用</h3><p>####5.1 Selenium的使用</p>
+<ol>
+<li>查找节点、节点交互操作</li>
+</ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line">import os</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">abspath = os.path.abspath(r<span class="string">"C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"</span>)</span><br><span class="line"><span class="comment">#将浏览器对象初始化，并赋值给browser</span></span><br><span class="line">browser = webdriver.Chrome(executable_path=abspath)</span><br><span class="line"></span><br><span class="line">url = <span class="string">'https://www.taobao.com/'</span></span><br><span class="line"><span class="comment">#模拟浏览器动作</span></span><br><span class="line">browser.get(url)</span><br><span class="line"><span class="comment">#获取网页源代码</span></span><br><span class="line">root_htmls = browser.page_source</span><br><span class="line"><span class="comment">#print(root_htmls)</span></span><br><span class="line"><span class="comment">#browser.close()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查找单个节点</span></span><br><span class="line"><span class="comment">#  获取输入框</span></span><br><span class="line">input_first = browser.find_element_by_id(<span class="string">'q'</span>)</span><br><span class="line"><span class="comment"># input_sec = browser.find_element_by_css_selector('#q')</span></span><br><span class="line"><span class="comment"># input_third = browser.find_element_by_xpath('//*[@id="q"]')</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查找多个节点</span></span><br><span class="line">navs = browser.find_elements_by_css_selector(<span class="string">'.nav-hd li'</span>)</span><br><span class="line"><span class="built_in">print</span>(navs)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 节点交互</span></span><br><span class="line"><span class="comment">#输入文字</span></span><br><span class="line">input_first.send_keys(<span class="string">'iPhone'</span>)</span><br><span class="line">time.sleep(3) <span class="comment"># 等待3秒</span></span><br><span class="line">input_first.clear()<span class="comment">#输入框情况</span></span><br><span class="line">input_first.send_keys(<span class="string">'泳镜'</span>)<span class="comment">#再次输入文字</span></span><br><span class="line"><span class="comment"># 获取搜索按钮</span></span><br><span class="line">but = browser.find_element_by_class_name(<span class="string">'btn-search'</span>)</span><br><span class="line">but.click() <span class="comment">#点击，完成搜索动作</span></span><br><span class="line">time.sleep(8) <span class="comment">#睡眠8秒</span></span><br><span class="line">browser.close()<span class="comment">#关闭浏览器</span></span><br></pre></td></tr></table></figure>
-
+<ol start="2">
+<li>动作链</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line">import os</span><br><span class="line">from selenium.webdriver import ActionChains</span><br><span class="line"></span><br><span class="line">abspath = os.path.abspath(r<span class="string">"C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"</span>)</span><br><span class="line">browser = webdriver.Chrome(executable_path=abspath)</span><br><span class="line"></span><br><span class="line"><span class="comment">#动作链</span></span><br><span class="line"><span class="comment">#实现一个节点的拖曳操作</span></span><br><span class="line">url = <span class="string">'http://www.runoob.com/try/try.php?filename=jqueryui-api-droppable'</span></span><br><span class="line">browser.get(url)</span><br><span class="line"></span><br><span class="line"><span class="comment">#切换到iframe(相当于页面的子页面)模块</span></span><br><span class="line">browser.switch_to.frame(<span class="string">'iframeResult'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#依次选中要拖曳的节点和拖曳到的目标节点</span></span><br><span class="line"><span class="built_in">source</span> = browser.find_element_by_css_selector(<span class="string">'#draggable'</span>)</span><br><span class="line">target = browser.find_element_by_css_selector(<span class="string">'#droppable'</span>)</span><br><span class="line"></span><br><span class="line">actions = ActionChains(browser)</span><br><span class="line">actions.drag_and_drop(<span class="built_in">source</span>, target)</span><br><span class="line">actions.perform()</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>获取节点信息</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#1. 有些操作，Selenium API并没有提供，</span></span><br><span class="line"><span class="comment"># 可通过模拟执行JavaScript来实现</span></span><br><span class="line">abspath = os.path.abspath(r<span class="string">"C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"</span>)</span><br><span class="line">browser = webdriver.Chrome(executable_path=abspath)</span><br><span class="line"></span><br><span class="line">url = <span class="string">'https://www.zhihu.com/explore'</span></span><br><span class="line">browser.get(url)</span><br><span class="line"></span><br><span class="line">browser.execute_script(<span class="string">'window.scrollTo(0, document.body.scrollHeight)'</span>)</span><br><span class="line">browser.execute_script(<span class="string">'alert("To Bottom")'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#2. 获取节点信息</span></span><br><span class="line"><span class="comment">#获取属性</span></span><br><span class="line">logo = browser.find_element_by_id(<span class="string">'zh-top-link-logo'</span>)</span><br><span class="line"><span class="built_in">print</span>(logo.text)</span><br><span class="line"><span class="comment">#print(logo.get_attribute('class'))</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#获取文本</span></span><br><span class="line"><span class="comment"># 先获取‘提问’按钮这个节点</span></span><br><span class="line">input1 = browser.find_element_by_class_name(<span class="string">'zu-top-add-question'</span>)</span><br><span class="line"><span class="built_in">print</span>(input1.text)</span><br><span class="line"></span><br><span class="line"><span class="comment">#获取id、位置、标签名和大小</span></span><br><span class="line"><span class="built_in">print</span>(input1.id)<span class="comment">#节点id</span></span><br><span class="line"><span class="built_in">print</span>(input1.location)<span class="comment">#节点在页面的相对位置</span></span><br><span class="line"><span class="built_in">print</span>(input1.tag_name)<span class="comment">#获取标签名称</span></span><br><span class="line"><span class="built_in">print</span>(input1.size)<span class="comment">#获取节点大小</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>切换frame</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">from selenium import webdriver</span><br><span class="line">from selenium.common.exceptions import NoSuchElementException</span><br><span class="line">import os </span><br><span class="line"></span><br><span class="line"><span class="comment">#切换Frame</span></span><br><span class="line"><span class="comment">#iframe是网页的一种节点，是子Frame，相当于页面的子页面，</span></span><br><span class="line"><span class="comment"># 可用switch_to.frame切换到iframe,</span></span><br><span class="line"><span class="comment"># 切换到Frame则用switch_to.parent_frame()</span></span><br><span class="line">abspath = os.path.abspath(r<span class="string">"C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"</span>)</span><br><span class="line">browser = webdriver.Chrome(executable_path=abspath)</span><br><span class="line">url = <span class="string">'http://www.runoob.com/try/try.php?filename=jqueryui-api-droppable'</span></span><br><span class="line">browser.get(url)</span><br><span class="line">browser.switch_to.frame(<span class="string">'iframeResult'</span>)</span><br><span class="line">try:</span><br><span class="line">    logo = browser.find_element_by_class_name(<span class="string">'logo'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'iframe logo'</span>)</span><br><span class="line">except NoSuchElementException:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'No iframe\'</span>s class is logo<span class="string">')</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">browser.switch_to.parent_frame()</span></span><br><span class="line"><span class="string">try:</span></span><br><span class="line"><span class="string">    #class="navbar-header logo" 这里选logo也可以</span></span><br><span class="line"><span class="string">    logo = browser.find_element_by_class_name('</span>navbar-header<span class="string">')</span></span><br><span class="line"><span class="string">    print(logo.text)</span></span><br><span class="line"><span class="string">except NoSuchElementException:</span></span><br><span class="line"><span class="string">    print('</span>no no no<span class="string">')</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>延时等待</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line">from selenium.webdriver.common.by import By</span><br><span class="line">from selenium.webdriver.support.ui import WebDriverWait</span><br><span class="line">from selenium.webdriver.support import expected_conditions as EC</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line"><span class="comment">#延时等待</span></span><br><span class="line"><span class="comment"># 延时等待一段时间，确保某些网页额外的Ajax请求等完全加载完，</span></span><br><span class="line"><span class="comment"># 确保所有节点已经加载出来，再获取page_source</span></span><br><span class="line"></span><br><span class="line">abspath = os.path.abspath(r<span class="string">"C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"</span>)</span><br><span class="line">browser = webdriver.Chrome(executable_path=abspath)</span><br><span class="line">url = <span class="string">'https://www.zhihu.com/explore'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#1. 隐式等待</span></span><br><span class="line">browser.implicitly_wait(10)</span><br><span class="line">browser.get(url)</span><br><span class="line">inp = browser.find_element_by_class_name(<span class="string">'zu-top-add-question'</span>)</span><br><span class="line"><span class="built_in">print</span>(inp.text)</span><br><span class="line"><span class="comment">#页面加载时间会受到网络条件的限制，</span></span><br><span class="line"><span class="comment"># 而隐式等待只规定了一个固定时间，太死板，不太好</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'==显示等待=='</span>)</span><br><span class="line"><span class="comment">#2. 显示等待</span></span><br><span class="line"><span class="comment"># 指定一个最长等待时间，时间内找到就返回，超出时间就抛异常</span></span><br><span class="line">br2 = webdriver.Chrome(executable_path=abspath)</span><br><span class="line">br2.get(url)</span><br><span class="line"></span><br><span class="line"><span class="built_in">wait</span> = WebDriverWait(br2, 10)</span><br><span class="line"><span class="comment">#10秒内等待，看能否找到ID为q的节点(搜索框)，找不到就抛异常</span></span><br><span class="line">inp2 = wait.until(EC.presence_of_element_located((By.ID, <span class="string">'q'</span>)))</span><br><span class="line"><span class="comment">#CSS选择器为.btn-search是否可点击</span></span><br><span class="line">but = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, <span class="string">'.zu-top-search-button'</span>)))</span><br><span class="line"><span class="built_in">print</span>(inp2, but)</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>前进和后退、Cookies操作及选项卡操作</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">import time,os</span><br><span class="line">from selenium import webdriver</span><br><span class="line">abspath = os.path.abspath(r<span class="string">"C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"</span>)</span><br><span class="line">br1 = webdriver.Chrome(executable_path=abspath)</span><br><span class="line"></span><br><span class="line"><span class="comment">#1. 前进和后退</span></span><br><span class="line">u1 = <span class="string">'https://www.baidu.com/'</span></span><br><span class="line">u2 = <span class="string">'https://taobao.com/'</span></span><br><span class="line">u3 = <span class="string">'https://douban.com/'</span></span><br><span class="line">br1.get(u1)</span><br><span class="line">br1.get(u2)</span><br><span class="line">br1.get(u3)</span><br><span class="line">br1.back()</span><br><span class="line">time.sleep(2)</span><br><span class="line">br1.back()</span><br><span class="line">time.sleep(1)</span><br><span class="line">br1.forward()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#2. 对Cookies进行操作</span></span><br><span class="line">u4 = <span class="string">'https://www.zhihu.com/explore'</span></span><br><span class="line">br2 = webdriver.Chrome(executable_path=abspath)</span><br><span class="line">br2.get(u4)</span><br><span class="line"><span class="built_in">print</span>(br2.get_cookies())</span><br><span class="line"></span><br><span class="line"><span class="comment"># cookie设置的不合法？没看到这条cookie啊..</span></span><br><span class="line">br2.add_cookie(&#123;<span class="string">'name'</span>:<span class="string">'cat'</span>,<span class="string">'domain'</span>:<span class="string">'dog'</span>,<span class="string">'value'</span>:<span class="string">'why'</span>&#125;)</span><br><span class="line">cookies = br2.get_cookies()</span><br><span class="line"><span class="keyword">for</span> cookie <span class="keyword">in</span> cookies:</span><br><span class="line">    <span class="built_in">print</span>(cookie)<span class="comment">#没看到这条cookie啊..</span></span><br><span class="line"><span class="built_in">print</span>(br2.get_cookies())</span><br><span class="line">br2.delete_all_cookies()</span><br><span class="line"><span class="built_in">print</span>(br2.get_cookies())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 选项卡管理</span></span><br><span class="line"></span><br><span class="line">brs1 = webdriver.Chrome(executable_path=abspath)</span><br><span class="line">url1 = <span class="string">'http://www.baidu.com'</span></span><br><span class="line">url2 = <span class="string">'https://taobao.com/'</span></span><br><span class="line">url3 = <span class="string">'https://douban.com/'</span></span><br><span class="line">brs1.get(url1)</span><br><span class="line"></span><br><span class="line">brs1.execute_script(<span class="string">'window.open()'</span>)</span><br><span class="line"><span class="built_in">print</span>(brs1.window_handles)</span><br><span class="line">brs1.switch_to_window(brs1.window_handles[1])</span><br><span class="line">brs1.get(url2)</span><br><span class="line">time.sleep(3)</span><br><span class="line">brs1.switch_to_window(brs1.window_handles[0])</span><br><span class="line">brs1.get(url3)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#4. 异常处理</span></span><br><span class="line"><span class="comment">#就是:</span></span><br><span class="line"><span class="string">""</span><span class="string">" try:</span></span><br><span class="line"><span class="string">    pass</span></span><br><span class="line"><span class="string">except expression as identifier:</span></span><br><span class="line"><span class="string">    pass "</span><span class="string">""</span></span><br></pre></td></tr></table></figure>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2018/07/17/5-dynamic-rendering/" data-id="cjjpqrp78000br0pebp246fzm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/07/17/5-dynamic-rendering/" data-id="cjjqwjnrk0005icpeqqgntqis" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -303,6 +325,16 @@
         
 <nav id="article-nav">
     
+        <a href="/2018/07/18/6-verify-code/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            6-验证码的识别
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2018/07/14/4-Ajax-getData/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
@@ -333,6 +365,26 @@
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/18/6-verify-code/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python爬虫/">Python爬虫</a></p>
+                            <p class="item-title"><a href="/2018/07/18/6-verify-code/" class="title">6-验证码的识别</a></p>
+                            <p class="item-date"><time datetime="2018-07-18T09:04:53.000Z" itemprop="datePublished">2018-07-18</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -414,26 +466,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/07/09/1-学习爬虫的基本库/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/07/09/1-学习爬虫的基本库/pikaqiu.png)" alt="1.学习爬虫的基本库" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Python爬虫/">Python爬虫</a></p>
-                            <p class="item-title"><a href="/2018/07/09/1-学习爬虫的基本库/" class="title">1.学习爬虫的基本库</a></p>
-                            <p class="item-date"><time datetime="2018-07-09T04:33:16.000Z" itemprop="datePublished">2018-07-09</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -443,7 +475,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python爬虫/">Python爬虫</a><span class="category-list-count">5</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python爬虫/">Python爬虫</a><span class="category-list-count">6</span></li></ul>
         </div>
     </div>
 
@@ -453,7 +485,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">8</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">8</span></li></ul>
         </div>
     </div>
 
@@ -463,7 +495,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python基础语法/">Python基础语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络爬虫/">网络爬虫</a><span class="tag-list-count">5</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python基础语法/">Python基础语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络爬虫/">网络爬虫</a><span class="tag-list-count">6</span></li></ul>
         </div>
     </div>
 
