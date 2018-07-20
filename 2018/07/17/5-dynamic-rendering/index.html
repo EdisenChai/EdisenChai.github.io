@@ -17,10 +17,12 @@
 <meta property="og:site_name" content="Edisenの博客">
 <meta property="og:description" content="5. Selenium与Splash的使用####5.1 Selenium的使用  查找节点、节点交互操作  12345678910111213141516171819202122232425262728293031323334353637from selenium import webdriverimport osimport timeabspath = os.path.abspath(r&quot;C:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-19T14:00:27.579Z">
+<meta property="og:image" content="http://yoursite.com/2018/07/17/5-dynamic-rendering/pikaqiu.png">
+<meta property="og:updated_time" content="2018-07-20T11:51:31.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="5-Selenium与Splash的使用">
 <meta name="twitter:description" content="5. Selenium与Splash的使用####5.1 Selenium的使用  查找节点、节点交互操作  12345678910111213141516171819202122232425262728293031323334353637from selenium import webdriverimport osimport timeabspath = os.path.abspath(r&quot;C:">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/17/5-dynamic-rendering/pikaqiu.png">
     
 
     
@@ -207,13 +209,14 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">import time,os</span><br><span class="line">from selenium import webdriver</span><br><span class="line">abspath = os.path.abspath(r<span class="string">"C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"</span>)</span><br><span class="line">br1 = webdriver.Chrome(executable_path=abspath)</span><br><span class="line"></span><br><span class="line"><span class="comment">#1. 前进和后退</span></span><br><span class="line">u1 = <span class="string">'https://www.baidu.com/'</span></span><br><span class="line">u2 = <span class="string">'https://taobao.com/'</span></span><br><span class="line">u3 = <span class="string">'https://douban.com/'</span></span><br><span class="line">br1.get(u1)</span><br><span class="line">br1.get(u2)</span><br><span class="line">br1.get(u3)</span><br><span class="line">br1.back()</span><br><span class="line">time.sleep(2)</span><br><span class="line">br1.back()</span><br><span class="line">time.sleep(1)</span><br><span class="line">br1.forward()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#2. 对Cookies进行操作</span></span><br><span class="line">u4 = <span class="string">'https://www.zhihu.com/explore'</span></span><br><span class="line">br2 = webdriver.Chrome(executable_path=abspath)</span><br><span class="line">br2.get(u4)</span><br><span class="line"><span class="built_in">print</span>(br2.get_cookies())</span><br><span class="line"></span><br><span class="line"><span class="comment"># cookie设置的不合法？没看到这条cookie啊..</span></span><br><span class="line">br2.add_cookie(&#123;<span class="string">'name'</span>:<span class="string">'cat'</span>,<span class="string">'domain'</span>:<span class="string">'dog'</span>,<span class="string">'value'</span>:<span class="string">'why'</span>&#125;)</span><br><span class="line">cookies = br2.get_cookies()</span><br><span class="line"><span class="keyword">for</span> cookie <span class="keyword">in</span> cookies:</span><br><span class="line">    <span class="built_in">print</span>(cookie)<span class="comment">#没看到这条cookie啊..</span></span><br><span class="line"><span class="built_in">print</span>(br2.get_cookies())</span><br><span class="line">br2.delete_all_cookies()</span><br><span class="line"><span class="built_in">print</span>(br2.get_cookies())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 选项卡管理</span></span><br><span class="line"></span><br><span class="line">brs1 = webdriver.Chrome(executable_path=abspath)</span><br><span class="line">url1 = <span class="string">'http://www.baidu.com'</span></span><br><span class="line">url2 = <span class="string">'https://taobao.com/'</span></span><br><span class="line">url3 = <span class="string">'https://douban.com/'</span></span><br><span class="line">brs1.get(url1)</span><br><span class="line"></span><br><span class="line">brs1.execute_script(<span class="string">'window.open()'</span>)</span><br><span class="line"><span class="built_in">print</span>(brs1.window_handles)</span><br><span class="line">brs1.switch_to_window(brs1.window_handles[1])</span><br><span class="line">brs1.get(url2)</span><br><span class="line">time.sleep(3)</span><br><span class="line">brs1.switch_to_window(brs1.window_handles[0])</span><br><span class="line">brs1.get(url3)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#4. 异常处理</span></span><br><span class="line"><span class="comment">#就是:</span></span><br><span class="line"><span class="string">""</span><span class="string">" try:</span></span><br><span class="line"><span class="string">    pass</span></span><br><span class="line"><span class="string">except expression as identifier:</span></span><br><span class="line"><span class="string">    pass "</span><span class="string">""</span></span><br></pre></td></tr></table></figure>
 <h4 id="爬取某猫商品信息"><a href="#爬取某猫商品信息" class="headerlink" title="爬取某猫商品信息"></a>爬取某猫商品信息</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">from selenium import webdriver</span><br><span class="line">from selenium.common.exceptions import TimeoutException</span><br><span class="line">from selenium.webdriver.common.by import By</span><br><span class="line">from selenium.webdriver.support import expected_conditions as EC</span><br><span class="line">from selenium.webdriver.support.wait import WebDriverWait</span><br><span class="line">from urllib.parse import quote</span><br><span class="line">from pyquery import PyQuery as pq</span><br><span class="line">from pymongo import MongoClient</span><br><span class="line">import time </span><br><span class="line"></span><br><span class="line">abspath = os.path.abspath(r<span class="string">"C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"</span>)</span><br><span class="line"><span class="comment">#初始化浏览器对象，赋值给browser</span></span><br><span class="line">browser = webdriver.Chrome(executable_path=abspath)</span><br><span class="line"><span class="comment">#设置显式等待，最大时长10秒</span></span><br><span class="line"><span class="built_in">wait</span> = WebDriverWait(browser,10)</span><br><span class="line">KEYWORD = <span class="string">'iPad'</span> <span class="comment">#设置搜索的关键词</span></span><br><span class="line"></span><br><span class="line">def index_page(page):</span><br><span class="line">    <span class="string">""</span><span class="string">"  </span></span><br><span class="line"><span class="string">    抓取索引页</span></span><br><span class="line"><span class="string">    :param page  页码 </span></span><br><span class="line"><span class="string">    "</span><span class="string">""</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'正在爬取第'</span>,page,<span class="string">'页'</span>)</span><br><span class="line">    url_base = <span class="string">'https://s.taobao.com/search?q='</span></span><br><span class="line">    url = url_base + quote(KEYWORD)</span><br><span class="line">    <span class="built_in">print</span>(url)</span><br><span class="line">    try:</span><br><span class="line">        browser.get(url)</span><br><span class="line">        <span class="keyword">if</span> page &gt; 1:</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 获取页码输入按钮</span></span><br><span class="line">            input = wait.until(EC.presence_of_element_located(</span><br><span class="line">                (By.CSS_SELECTOR, <span class="string">'#mainsrp-pager div.form &gt; input'</span>)))</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 获取页码跳转 button</span></span><br><span class="line">            submit = wait.until(EC.element_to_be_clickable(</span><br><span class="line">                (By.CSS_SELECTOR, <span class="string">'#mainsrp-pager div.form &gt; span.btn.J_Submit'</span>)))</span><br><span class="line">            input.clear()</span><br><span class="line">            input.send_keys(page)</span><br><span class="line">            submit.click()</span><br><span class="line"></span><br><span class="line">        <span class="comment">#确保页码有跳转到指定页码page(通过检测高亮页码的节点)</span></span><br><span class="line">        <span class="comment">#参数：定位器，文本</span></span><br><span class="line">        wait.until(EC.text_to_be_present_in_element(</span><br><span class="line">            (By.CSS_SELECTOR, <span class="string">'#mainsrp-pager li.item.active &gt; span'</span>), str(page)))</span><br><span class="line"></span><br><span class="line">        <span class="comment">#确保每个商品信息模块都被加载出来</span></span><br><span class="line">        wait.until(EC.presence_of_element_located(</span><br><span class="line">            (By.CSS_SELECTOR, <span class="string">'.m-itemlist .items .item'</span>)))</span><br><span class="line">        </span><br><span class="line">        get_products()</span><br><span class="line">            </span><br><span class="line">    except TimeoutError:</span><br><span class="line">        index_page(page)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_products():</span><br><span class="line">    <span class="string">""</span><span class="string">" </span></span><br><span class="line"><span class="string">    提取商品数据 </span></span><br><span class="line"><span class="string">    "</span><span class="string">""</span></span><br><span class="line">    htmls = browser.page_source</span><br><span class="line">    <span class="comment">#print(htmls)</span></span><br><span class="line">    doc = pq(htmls)</span><br><span class="line">    items = doc(<span class="string">'#mainsrp-itemlist .items .item'</span>).items()</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">        product = &#123;</span><br><span class="line">            <span class="string">'title'</span>:item.find(<span class="string">'.title'</span>).text(),</span><br><span class="line">            <span class="string">'price'</span>:item.find(<span class="string">'.price'</span>).text(),</span><br><span class="line">            <span class="string">'deal'</span>:item.find(<span class="string">'.deal-cnt'</span>).text(),</span><br><span class="line">            <span class="string">'shop'</span>:item.find(<span class="string">'.shop'</span>).text(),</span><br><span class="line">            <span class="string">'location'</span>:item.find(<span class="string">'.location'</span>).text(),</span><br><span class="line">            <span class="string">'image'</span>:item.find(<span class="string">'.pic .img'</span>).attr(<span class="string">'data-src'</span>)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">print</span>(product)</span><br><span class="line">        save_to_mongo(product)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def save_to_mongo(result):</span><br><span class="line">    <span class="string">""</span><span class="string">" </span></span><br><span class="line"><span class="string">    将数据保存到MongoDB数据库 </span></span><br><span class="line"><span class="string">    :param result: 一条每个商品信息的数据</span></span><br><span class="line"><span class="string">    "</span><span class="string">""</span></span><br><span class="line">    client = MongoClient(host=<span class="string">'localhost'</span>, port=27017)</span><br><span class="line">    db = client.admin</span><br><span class="line">    collection = db.taobao</span><br><span class="line">    try:</span><br><span class="line">        <span class="keyword">if</span> collection.insert(result):</span><br><span class="line">            i = 1</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'存储成功'</span>+<span class="string">': '</span>+ str(i))</span><br><span class="line">            i += 1</span><br><span class="line">    except Exception:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'存储失败...'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    <span class="string">""</span><span class="string">" </span></span><br><span class="line"><span class="string">    入口函数，并遍历每一页 </span></span><br><span class="line"><span class="string">    "</span><span class="string">""</span></span><br><span class="line">    MAX_PAGE = 100</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(1,MAX_PAGE + 1):</span><br><span class="line">        index_page(i)</span><br><span class="line">    browser.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<img src="/2018/07/17/5-dynamic-rendering/pikaqiu.png" title="so bad">
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2018/07/17/5-dynamic-rendering/" data-id="cjjsmjaww000cgspegd0bqik3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/07/17/5-dynamic-rendering/" data-id="cjjtyqexk000aswpeegojh9bk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -370,10 +373,30 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/07/18/6-verify-code/" class="thumbnail">
+                            <a href="/2018/07/20/7-proxy-use/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python爬虫/">Python爬虫</a></p>
+                            <p class="item-title"><a href="/2018/07/20/7-proxy-use/" class="title">7-proxy-use</a></p>
+                            <p class="item-date"><time datetime="2018-07-20T12:29:55.000Z" itemprop="datePublished">2018-07-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/18/6-verify-code/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/07/18/6-verify-code/pic_verify.png)" alt="6-验证码的识别" class="thumbnail-image"></span>
     
     
 </a>
@@ -393,7 +416,7 @@
                             <a href="/2018/07/17/5-dynamic-rendering/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/2018/07/17/5-dynamic-rendering/pikaqiu.png)" alt="5-Selenium与Splash的使用" class="thumbnail-image"></span>
     
     
 </a>
@@ -447,26 +470,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/07/10/2-解析库的使用/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/07/10/2-解析库的使用/pikaqiu.png)" alt="2. 解析库的使用" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Python爬虫/">Python爬虫</a></p>
-                            <p class="item-title"><a href="/2018/07/10/2-解析库的使用/" class="title">2. 解析库的使用</a></p>
-                            <p class="item-date"><time datetime="2018-07-10T01:13:42.000Z" itemprop="datePublished">2018-07-10</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -476,7 +479,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python爬虫/">Python爬虫</a><span class="category-list-count">6</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python爬虫/">Python爬虫</a><span class="category-list-count">7</span></li></ul>
         </div>
     </div>
 
@@ -486,7 +489,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">8</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">8</span></li></ul>
         </div>
     </div>
 
@@ -496,7 +499,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python基础语法/">Python基础语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络爬虫/">网络爬虫</a><span class="tag-list-count">6</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python基础语法/">Python基础语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络爬虫/">网络爬虫</a><span class="tag-list-count">7</span></li></ul>
         </div>
     </div>
 
