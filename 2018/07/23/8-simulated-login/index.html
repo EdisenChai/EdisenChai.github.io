@@ -3,24 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>四、Python的分支、循环、条件与枚举 | Edisenの博客</title>
+    <title>8-simulated-login | Edisenの博客</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="Python系统课程-C1" />
+        <meta name="keywords" content="网络爬虫" />
     
-    <meta name="description" content="4 分支、循环、条件与枚举4.1 表达式表达式(Expression)是运算符(operator)和操作数(operand)所构成的序列.表达式的优先级问题(一般按照优先级，进行左结合运算)，不需要刻意去记，拿不准用()即可.123456789101112131415161718192021222324252627282930&amp;gt;&amp;gt;&amp;gt; 1+2**3 # 常见表达式9&amp;gt;&amp;gt;">
-<meta name="keywords" content="Python系统课程-C1">
+    <meta name="description" content="8. 模拟登录12">
+<meta name="keywords" content="网络爬虫">
 <meta property="og:type" content="article">
-<meta property="og:title" content="四、Python的分支、循环、条件与枚举">
-<meta property="og:url" content="http://yoursite.com/2018/06/27/C1-Python的分支、循环、条件与枚举/index.html">
+<meta property="og:title" content="8-simulated-login">
+<meta property="og:url" content="http://yoursite.com/2018/07/23/8-simulated-login/index.html">
 <meta property="og:site_name" content="Edisenの博客">
-<meta property="og:description" content="4 分支、循环、条件与枚举4.1 表达式表达式(Expression)是运算符(operator)和操作数(operand)所构成的序列.表达式的优先级问题(一般按照优先级，进行左结合运算)，不需要刻意去记，拿不准用()即可.123456789101112131415161718192021222324252627282930&amp;gt;&amp;gt;&amp;gt; 1+2**3 # 常见表达式9&amp;gt;&amp;gt;">
+<meta property="og:description" content="8. 模拟登录12">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-27T06:00:05.779Z">
+<meta property="og:updated_time" content="2018-07-23T13:23:28.380Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="四、Python的分支、循环、条件与枚举">
-<meta name="twitter:description" content="4 分支、循环、条件与枚举4.1 表达式表达式(Expression)是运算符(operator)和操作数(operand)所构成的序列.表达式的优先级问题(一般按照优先级，进行左结合运算)，不需要刻意去记，拿不准用()即可.123456789101112131415161718192021222324252627282930&amp;gt;&amp;gt;&amp;gt; 1+2**3 # 常见表达式9&amp;gt;&amp;gt;">
+<meta name="twitter:title" content="8-simulated-login">
+<meta name="twitter:description" content="8. 模拟登录12">
     
 
     
@@ -145,18 +145,18 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/Python/">Python</a>
+    <a class="page-title-link" href="/categories/Python爬虫/">Python爬虫</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-C1-Python的分支、循环、条件与枚举" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-8-simulated-login" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        四、Python的分支、循环、条件与枚举
+        8-simulated-login
         </h1>
     
 
@@ -166,24 +166,22 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2018/06/27/C1-Python的分支、循环、条件与枚举/" class="article-date">
-            <time datetime="2018-06-26T16:53:39.000Z" itemprop="datePublished">2018-06-27</time>
+        <a href="/2018/07/23/8-simulated-login/" class="article-date">
+            <time datetime="2018-07-23T13:22:35.000Z" itemprop="datePublished">2018-07-23</time>
         </a>
     </div>
 
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a>
+        <a class="tag-link" href="/tags/网络爬虫/">网络爬虫</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <h3 id="4-分支、循环、条件与枚举"><a href="#4-分支、循环、条件与枚举" class="headerlink" title="4 分支、循环、条件与枚举"></a>4 分支、循环、条件与枚举</h3><h4 id="4-1-表达式"><a href="#4-1-表达式" class="headerlink" title="4.1 表达式"></a>4.1 表达式</h4><p>表达式(Expression)是运算符(operator)和操作数(operand)所构成的序列.<br>表达式的优先级问题(一般按照优先级，进行左结合运算)，不需要刻意去记，拿不准用()即可.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 1+2**3 <span class="comment"># 常见表达式</span></span><br><span class="line">9</span><br><span class="line">&gt;&gt;&gt; c = int(<span class="string">'1'</span>) + 2</span><br><span class="line">&gt;&gt;&gt; c + 0</span><br><span class="line">3</span><br><span class="line">&gt;&gt;&gt; a = 1</span><br><span class="line">&gt;&gt;&gt; b =2</span><br><span class="line">&gt;&gt;&gt; a or b and c <span class="comment"># 优先级</span></span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; (a or b) and c</span><br><span class="line">3</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; a = 1</span><br><span class="line">&gt;&gt;&gt; b = 2</span><br><span class="line">&gt;&gt;&gt; c = a + b  <span class="comment">#出现赋值运算符 = 右结合</span></span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(c)</span><br><span class="line">3</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; d = a or b <span class="comment"># or 优先级低于 =,但依旧是右结合</span></span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span>(d)</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; a = 1</span><br><span class="line">&gt;&gt;&gt; b =2</span><br><span class="line">&gt;&gt;&gt; c = 2</span><br><span class="line">&gt;&gt;&gt; not a or b + 2 == c</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; (not a) or ((b + 2) == c) <span class="comment"># 多用括号</span></span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="4-2-if-else-–流程控制语句"><a href="#4-2-if-else-–流程控制语句" class="headerlink" title="4.2 if else –流程控制语句"></a>4.2 if else –流程控制语句</h4><p>VSCode开发环境熟悉<br>ctr + ~ 打开关闭cmd<br>单行注释 ctr + / 选择多行，同时注释多行，再按一次，取消<br>多行注释 alt + shift + a … …<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""</span><span class="string">" 以下是本模块的说明：</span></span><br><span class="line"><span class="string">实现用户登录账户密码验证</span></span><br><span class="line"><span class="string">假设用户已经注册，且用户名密码等信息已存入数据库 "</span><span class="string">""</span></span><br><span class="line">ZS = <span class="string">'zhangsan'</span> <span class="comment">#python中没有常量(实际依旧是变量)，只是一种书写规范(大写)</span></span><br><span class="line">ZS_PWD = <span class="string">'123'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'请输入用户名： '</span>)</span><br><span class="line">user_account = input() <span class="comment"># 变量一般出现在函数或者类中，尽量不要直接丢在模块中</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'请输入密码： '</span>)</span><br><span class="line">user_passwd = input()</span><br><span class="line"></span><br><span class="line"><span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">#实现方式 1 </span></span><br><span class="line"><span class="string"> if user_account == ZS:</span></span><br><span class="line"><span class="string">    if user_passwd == ZS_PWD:</span></span><br><span class="line"><span class="string">        print('success ')</span></span><br><span class="line"><span class="string">    else:</span></span><br><span class="line"><span class="string">        print('pwd fail!')</span></span><br><span class="line"><span class="string">else:</span></span><br><span class="line"><span class="string">    print('user fail!')</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    "</span><span class="string">""</span></span><br><span class="line"><span class="comment"># 实现方式二</span></span><br><span class="line"><span class="keyword">if</span> user_account == ZS and user_passwd == ZS_PWD: <span class="comment"># :前不要有空格</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'success '</span>) <span class="comment"># 前边有四个空格，不是所有的IDLE的tab都表示四个空格</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'failure '</span>)</span><br><span class="line">    <span class="comment"># 程序最后加一个空行</span></span><br><span class="line">    </span><br><span class="line">a = True </span><br><span class="line"><span class="keyword">if</span> a:           <span class="comment"># snippet 片段</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'ok'</span>) <span class="comment"># tap 进入下一个pass(占位符)</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'no'</span>) <span class="comment"># shift tap 返回上一个pass(占位符)</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="4-3-elif-–流程控制语句"><a href="#4-3-elif-–流程控制语句" class="headerlink" title="4.3 elif –流程控制语句"></a>4.3 elif –流程控制语句</h4><p>python没有switch语法，但可用多个elif或者字典替代(具体看参考官方文档).<br>elif 简洁优美.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""</span><span class="string">" elif 与 if else 对比 "</span><span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'please input a :'</span>)</span><br><span class="line">a = input() <span class="comment"># 把输入的str a 转换为数字 a </span></span><br><span class="line">a = int(a)</span><br><span class="line"><span class="keyword">if</span> a == 1:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'1apple'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">if</span> a == 2:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'2blue'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> a ==3:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'3black'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'unknown'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上边的if..else 嵌套太繁琐，以下是简约的写法if..elif</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'pls input a number : '</span>)</span><br><span class="line">b = input()</span><br><span class="line">b = int(b)</span><br><span class="line"><span class="keyword">if</span> b == 1:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'1b'</span>)</span><br><span class="line"><span class="keyword">elif</span> b == 2:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'2b'</span>)</span><br><span class="line"><span class="keyword">elif</span> b == 3:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'3b'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'what??'</span>)</span><br></pre></td></tr></table></figure></p>
+            <h3 id="8-模拟登录"><a href="#8-模拟登录" class="headerlink" title="8. 模拟登录"></a>8. 模拟登录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
         </div>
         <footer class="article-footer">
@@ -191,7 +189,7 @@
 
 
 
-    <a data-url="http://yoursite.com/2018/06/27/C1-Python的分支、循环、条件与枚举/" data-id="cjjyayfzj001cpspehu0gqnat" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/07/23/8-simulated-login/" data-id="cjjyayfxx000kpspe35g9eanp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -304,20 +302,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/06/27/五、python的包、模块、函数及变量作用域/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            五、python的包、模块、函数及变量作用域
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2018/06/01/C1-Python的变量与运算符/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/07/20/7-proxy-use/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">三、Python的变量与运算符</p>
+        <p class="article-nav-title">7-proxy-use</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -540,7 +528,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://yoursite.com/2018/06/27/C1-Python的分支、循环、条件与枚举/';
+    var disqus_url = 'http://yoursite.com/2018/07/23/8-simulated-login/';
     
     (function() {
     var dsq = document.createElement('script');
