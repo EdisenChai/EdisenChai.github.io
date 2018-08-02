@@ -9,15 +9,20 @@
     
         <meta name="keywords" content="网络爬虫" />
     
-    <meta name="keywords" content="网络爬虫">
+    <meta name="description" content="pyspider的基本使用以爬取 去哪儿网 所有攻略的作者、标题、出发日期、人均费用、攻略正文、背景图片及呆了几天等信息。 1.cmd 运行 pyspider all  运行界面    调试页面     代码：  123456789101112131415161718192021222324252627282930313233343536373839#!/usr/bin/env python# -">
+<meta name="keywords" content="网络爬虫">
 <meta property="og:type" content="article">
 <meta property="og:title" content="10-pyspider-frame-use">
 <meta property="og:url" content="http://yoursite.com/2018/07/26/10-pyspider-frame-use/index.html">
 <meta property="og:site_name" content="Edisenの博客">
+<meta property="og:description" content="pyspider的基本使用以爬取 去哪儿网 所有攻略的作者、标题、出发日期、人均费用、攻略正文、背景图片及呆了几天等信息。 1.cmd 运行 pyspider all  运行界面    调试页面     代码：  123456789101112131415161718192021222324252627282930313233343536373839#!/usr/bin/env python# -">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-26T13:19:49.377Z">
+<meta property="og:image" content="http://yoursite.com/2018/07/26/10-pyspider-frame-use/pyspider2.png">
+<meta property="og:updated_time" content="2018-08-02T13:49:21.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="10-pyspider-frame-use">
+<meta name="twitter:description" content="pyspider的基本使用以爬取 去哪儿网 所有攻略的作者、标题、出发日期、人均费用、攻略正文、背景图片及呆了几天等信息。 1.cmd 运行 pyspider all  运行界面    调试页面     代码：  123456789101112131415161718192021222324252627282930313233343536373839#!/usr/bin/env python# -">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/26/10-pyspider-frame-use/pyspider2.png">
     
 
     
@@ -178,14 +183,27 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <h3 id="pyspider的基本使用"><a href="#pyspider的基本使用" class="headerlink" title="pyspider的基本使用"></a>pyspider的基本使用</h3><p>以爬取 去哪儿网 所有攻略的作者、标题、出发日期、人均费用、攻略正文、背景图片及呆了几天等信息。</p>
+<p>1.cmd 运行 pyspider all</p>
+<ol start="2">
+<li>运行界面</li>
+</ol>
+<img src="/2018/07/26/10-pyspider-frame-use/pyspider2.png" title="调试">
+<ol start="3">
+<li>调试页面 </li>
+</ol>
+
+<ol start="4">
+<li>代码：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- encoding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># Created on 2018-08-01 20:37:26</span></span><br><span class="line"><span class="comment"># Project: qunar</span></span><br><span class="line"></span><br><span class="line">from pyspider.libs.base_handler import *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Handler(BaseHandler):</span><br><span class="line">    crawl_config = &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @every(minutes=24 * 60)</span><br><span class="line">    def on_start(self):</span><br><span class="line">        self.crawl(<span class="string">'http://travel.qunar.com/travelbook/list.htm'</span>, callback=self.index_page)</span><br><span class="line"></span><br><span class="line">    @config(age=10 * 24 * 60 * 60)</span><br><span class="line">    def index_page(self, response):</span><br><span class="line">        <span class="comment">#print(response)</span></span><br><span class="line">        <span class="keyword">for</span> each <span class="keyword">in</span> response.doc(<span class="string">'li &gt; .tit &gt; a'</span>).items():</span><br><span class="line">            self.crawl(each.attr.href, callback=self.detail_page, fetch_type=<span class="string">'js'</span>)</span><br><span class="line">            <span class="comment">#print(each)</span></span><br><span class="line">            <span class="comment">#print(each.attr.href)</span></span><br><span class="line">        next = response.doc(<span class="string">'.next'</span>).attr.href</span><br><span class="line">        self.crawl(next, callback=self.index_page)</span><br><span class="line"></span><br><span class="line">    @config(priority=2)</span><br><span class="line">    def detail_page(self, response):</span><br><span class="line">        <span class="built_in">return</span> &#123;</span><br><span class="line">            <span class="string">"url"</span>: response.url,</span><br><span class="line">            <span class="string">"title"</span>: response.doc(<span class="string">'#booktitle'</span>).text(),</span><br><span class="line">            <span class="string">"author"</span>: response.doc(<span class="string">'.who .data'</span>).text(),</span><br><span class="line">            <span class="string">"date"</span>: response.doc(<span class="string">'.when .data'</span>).text(),</span><br><span class="line">            <span class="string">"days"</span>: response.doc(<span class="string">'.howlong .data'</span>).text(),</span><br><span class="line">            <span class="string">"money"</span>: response.doc(<span class="string">'.howmuch .data'</span>).text(),</span><br><span class="line">            <span class="string">"text"</span>: response.doc(<span class="string">'#b_panel_schedule'</span>).text(),</span><br><span class="line">            <span class="string">"img"</span>: response.doc(<span class="string">'.cover_img'</span>).attr.src</span><br><span class="line">                </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2018/07/26/10-pyspider-frame-use/" data-id="cjk2l5pyb000040penebovg4d" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/07/26/10-pyspider-frame-use/" data-id="cjkclfhjt0005wwpew6ydqkrz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -335,7 +353,7 @@
                             <a href="/2018/07/26/10-pyspider-frame-use/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/2018/07/26/10-pyspider-frame-use/pyspider2.png)" alt="10-pyspider-frame-use" class="thumbnail-image"></span>
     
     
 </a>
