@@ -1,39 +1,20 @@
-<hr>
-<p>title: Samba共享服务器搭建<br>date: 2018-07-12 20:22:16<br>tags:</p>
-<ul>
-<li>Linux实战<br>categories:</li>
-<li>Linux</li>
-</ul>
-<hr>
 <h3 id="Samba共享服务器搭建"><a href="#Samba共享服务器搭建" class="headerlink" title="Samba共享服务器搭建"></a>Samba共享服务器搭建</h3><h4 id="1-使用yum-命令安装Samba4及所需要的包"><a href="#1-使用yum-命令安装Samba4及所需要的包" class="headerlink" title="1.使用yum 命令安装Samba4及所需要的包"></a>1.使用yum 命令安装Samba4及所需要的包</h4><pre><code class="bash">yum install samba samba-client samba-common
 </code></pre>
 <h4 id="2-安装好samba包后，将samba服务添加到允许通过Linux防火墙中"><a href="#2-安装好samba包后，将samba服务添加到允许通过Linux防火墙中" class="headerlink" title="2.    安装好samba包后，将samba服务添加到允许通过Linux防火墙中"></a>2.    安装好samba包后，将samba服务添加到允许通过Linux防火墙中</h4><pre><code class="bash">firewall-cmd --permanent --zone=public --add-service=samba
 firewall-cmd --reload
-``
-PS：firewall常用命令：firewall.service服务
-      service firewalld restart 重启
-service firewalld start 开启
-service firewalld stop 关闭
-
-http://blog.csdn.net/xlgen157387/article/details/52672988
-
-<span class="comment">#### 3. 备份Samba的配置文件/etc/samba/smb.conf</span>
-
-``` bash
-cp /etc/samba/smb.conf /etc/samba/smb.conf.orig
+</code></pre>
+<p>PS：firewall常用命令：firewall.service服务<br>service firewalld restart 重启<br>service firewalld start 开启<br>service firewalld stop 关闭</p>
+<p><a href="http://blog.csdn.net/xlgen157387/article/details/52672988">http://blog.csdn.net/xlgen157387/article/details/52672988</a></p>
+<h4 id="3-备份Samba的配置文件-etc-samba-smb-conf"><a href="#3-备份Samba的配置文件-etc-samba-smb-conf" class="headerlink" title="3. 备份Samba的配置文件/etc/samba/smb.conf"></a>3. 备份Samba的配置文件/etc/samba/smb.conf</h4><pre><code class="bash">cp /etc/samba/smb.conf /etc/samba/smb.conf.orig
 </code></pre>
 <h4 id="4-新建用户和组，将用户加到组里-通过组权限和所有者，可快速实现对同一个文件夹，给不同用户设置不同权限"><a href="#4-新建用户和组，将用户加到组里-通过组权限和所有者，可快速实现对同一个文件夹，给不同用户设置不同权限" class="headerlink" title="4. 新建用户和组，将用户加到组里 (通过组权限和所有者，可快速实现对同一个文件夹，给不同用户设置不同权限)"></a>4. 新建用户和组，将用户加到组里 (通过组权限和所有者，可快速实现对同一个文件夹，给不同用户设置不同权限)</h4><pre><code class="bash">useradd tecmint
 groupadd smbgrp
 usermod tecmint -aG smbgrp
 
-``
-
-<span class="comment">#### 5.    创建一个共享文件目录(这里是根目录/srv目录下)  /srv/samba/secure， 并设置文件目录的所有者以及所属组，以及相对应的权限</span>
-
-``` bash
- mkdir -p /srv/samba/secure
- chmod -R 0770 /srv/samba/secure
- chown -R root:smbgrp /srv/samba/secure 
+</code></pre>
+<h4 id="5-创建一个共享文件目录-这里是根目录-srv目录下-srv-samba-secure，-并设置文件目录的所有者以及所属组，以及相对应的权限"><a href="#5-创建一个共享文件目录-这里是根目录-srv目录下-srv-samba-secure，-并设置文件目录的所有者以及所属组，以及相对应的权限" class="headerlink" title="5.    创建一个共享文件目录(这里是根目录/srv目录下)  /srv/samba/secure， 并设置文件目录的所有者以及所属组，以及相对应的权限"></a>5.    创建一个共享文件目录(这里是根目录/srv目录下)  /srv/samba/secure， 并设置文件目录的所有者以及所属组，以及相对应的权限</h4><pre><code class="bash">mkdir -p /srv/samba/secure
+chmod -R 0770 /srv/samba/secure
+chown -R root:smbgrp /srv/samba/secure 
 </code></pre>
 <h4 id="6-修改SELinux安全内容，设置samba共享路径"><a href="#6-修改SELinux安全内容，设置samba共享路径" class="headerlink" title="6. 修改SELinux安全内容，设置samba共享路径"></a>6. 修改SELinux安全内容，设置samba共享路径</h4><pre><code class="bash">chcon -t samba_share_t /srv/samba/secure
 </code></pre>
@@ -51,12 +32,8 @@ browsable = yes
 
 </code></pre>
 <h4 id="8-检查确认samba配置信息已经修改好"><a href="#8-检查确认samba配置信息已经修改好" class="headerlink" title="8.    检查确认samba配置信息已经修改好"></a>8.    检查确认samba配置信息已经修改好</h4><pre><code class="bash">testparm
-``
-
-<span class="comment">#### 9.    启动samba服务</span>
-
-``` bash
-systemctl <span class="built_in">enable</span> smb.service
+</code></pre>
+<h4 id="9-启动samba服务"><a href="#9-启动samba服务" class="headerlink" title="9.    启动samba服务"></a>9.    启动samba服务</h4><pre><code class="bash">systemctl <span class="built_in">enable</span> smb.service
 systemctl <span class="built_in">enable</span> nmb.service
 systemctl start smb.service
 systemctl start nmb.service
@@ -67,4 +44,3 @@ systemctl start nmb.service
 </code></pre>
 <p>参考连接：<a href="https://www.tecmint.com/install-samba4-on-centos-7-for-file-sharing-on-windows/">https://www.tecmint.com/install-samba4-on-centos-7-for-file-sharing-on-windows/</a></p>
 <h4 id="11-用户及文件夹的权限配置："><a href="#11-用户及文件夹的权限配置：" class="headerlink" title="11. 用户及文件夹的权限配置："></a>11. 用户及文件夹的权限配置：</h4><p>参考连接：<a href="https://blog.csdn.net/lan120576664/article/details/50396511">https://blog.csdn.net/lan120576664/article/details/50396511</a></p>
-<p>{% asset_img  samba.png samba%}</p>
