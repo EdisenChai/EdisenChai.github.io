@@ -18,7 +18,7 @@
 <meta property="og:description" content="7 面向对象7.1 类与对象7.1.1 类的定义命名规则：首字母大写，不用_相连，命名驼峰式最基本作用： 封装代码，只负责定义，不负责执行123456789class StuInfo():    name = &apos; &apos;    age = 0    def print_file(self):        print(&apos;name: &apos; + self.name)        print(&apos;age: &apos;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/06/30/七、面向对象/class_import.png">
-<meta property="og:updated_time" content="2018-07-03T07:15:25.920Z">
+<meta property="og:updated_time" content="2018-08-22T11:56:37.882Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="七、面向对象">
 <meta name="twitter:description" content="7 面向对象7.1 类与对象7.1.1 类的定义命名规则：首字母大写，不用_相连，命名驼峰式最基本作用： 封装代码，只负责定义，不负责执行123456789class StuInfo():    name = &apos; &apos;    age = 0    def print_file(self):        print(&apos;name: &apos; + self.name)        print(&apos;age: &apos;">
@@ -198,13 +198,14 @@
 <img src="/2018/06/30/七、面向对象/inherit_class.png" title="简单的单继承">
 <h4 id="7-6-子类方法调用父类方法：super关键字"><a href="#7-6-子类方法调用父类方法：super关键字" class="headerlink" title="7.6 子类方法调用父类方法：super关键字"></a>7.6 子类方法调用父类方法：super关键字</h4><p>a. python中super关键字用法与java不同，它主要是用来在子类中调用父类方法，如在子类构造函数中调用父类构造函数：<br>def <strong>init</strong>(self, name, age):<br>    super(子类名, self).<strong>init</strong>(name, age)<br>b. 也可以调用父类普通方法;<br>当子类的方法和父类的方法同名时，Python会优先调用子类的方法  需要用super关键字去调用父类方法<br>举例如图：</p>
 <img src="/2018/06/30/七、面向对象/inherit_super.png" title="super继承">
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">from b8 import Human</span><br><span class="line"></span><br><span class="line">class Stu(Human):</span><br><span class="line">    sum = 0</span><br><span class="line"></span><br><span class="line">    def __init__(self,school,name,age):</span><br><span class="line">        self.school = school</span><br><span class="line">        <span class="comment">#Human.__init__(self,name,age)</span></span><br><span class="line">        <span class="comment"># 推荐使用super来调用父类初始化</span></span><br><span class="line">        super(Stu,self).__init__(name, age)</span><br><span class="line"></span><br><span class="line">    @classmethod</span><br><span class="line">    def count_stu(cls):</span><br><span class="line">        cls.sum += 1</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'For now: '</span>+str(cls.sum) + <span class="string">' students'</span> )</span><br><span class="line">    <span class="comment"># 实例方法    </span></span><br><span class="line">    def do_homework(self):</span><br><span class="line">        super(Stu,self).do_homework()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'Subclass method'</span>)</span><br><span class="line"></span><br><span class="line">stu1 = Stu(<span class="string">'实验中学'</span>,<span class="string">'MingMing'</span>,14)</span><br><span class="line">Stu.count_stu()</span><br><span class="line">stu1.do_homework()</span><br><span class="line"><span class="built_in">print</span>(stu1.__dict__)</span><br></pre></td></tr></table></figure>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2018/06/30/七、面向对象/" data-id="cjl3fsf1i001pn0pehzy9t6la" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/06/30/七、面向对象/" data-id="cjl570jcd001m44pehwhv6wvv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
