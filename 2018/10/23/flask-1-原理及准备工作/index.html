@@ -17,10 +17,12 @@
 <meta property="og:site_name" content="Edisenの博客">
 <meta property="og:description" content="1. 利用pipenv创建虚拟环境a. 常用命令cmd命令：新建文件（mkdir 文件名）创建虚拟环境-全局安装：pip install pipenv-项目创建虚拟环境：在项目路径下 pipenv installpipenv优势和作用：-相较virtualenv安装更方便，没有权限问题-可以隔离不同版本的python，包等。安装flask：pipenv istall flaskpipenv管理命令">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-23T09:10:31.704Z">
+<meta property="og:image" content="http://yoursite.com/2018/10/23/flask-1-原理及准备工作/flask-demon.png">
+<meta property="og:updated_time" content="2018-10-31T12:28:38.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flask-1-原理及准备工作">
 <meta name="twitter:description" content="1. 利用pipenv创建虚拟环境a. 常用命令cmd命令：新建文件（mkdir 文件名）创建虚拟环境-全局安装：pip install pipenv-项目创建虚拟环境：在项目路径下 pipenv installpipenv优势和作用：-相较virtualenv安装更方便，没有权限问题-可以隔离不同版本的python，包等。安装flask：pipenv istall flaskpipenv管理命令">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/23/flask-1-原理及准备工作/flask-demon.png">
     
 
     
@@ -72,26 +74,6 @@
                             
                                         <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python爬虫/">Python爬虫</a></li></ul>
                                     
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/python">常见问题</a>
-                                </li>
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/linux">Linux实战</a>
-                                </li>
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/life">随便写点儿</a>
-                                </li>
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/money">☞赏点儿水果☜</a>
-                                </li>
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
-                                </li>
-                            
                         </ul>
                         <nav id="sub-nav">
                             <div id="search-form-wrap">
@@ -182,6 +164,27 @@
         
         <div class="article-entry" itemprop="articleBody">
             <h3 id="1-利用pipenv创建虚拟环境"><a href="#1-利用pipenv创建虚拟环境" class="headerlink" title="1. 利用pipenv创建虚拟环境"></a>1. 利用pipenv创建虚拟环境</h3><h4 id="a-常用命令"><a href="#a-常用命令" class="headerlink" title="a. 常用命令"></a>a. 常用命令</h4><p>cmd命令：新建文件（mkdir 文件名）<br>创建虚拟环境<br>-全局安装：pip install pipenv<br>-项目创建虚拟环境：在项目路径下 pipenv install<br>pipenv优势和作用：<br>-相较virtualenv安装更方便，没有权限问题<br>-可以隔离不同版本的python，包等。<br>安装flask：pipenv istall flask<br>pipenv管理命令：<br>-退出虚拟环境：exit<br>-进入：pipenv shell(若当前目录没有虚拟环境，会自动安装)<br>-卸载包：pipenv uninstall flask<br>-查看安装包的依赖关系:pipenv graph</p>
+<h4 id="唯一URL原则"><a href="#唯一URL原则" class="headerlink" title="唯一URL原则"></a>唯一URL原则</h4><p>@app.route(‘/hello/‘)<br>127.0.0.1/hello和127.0.0.1/hello/都可以访问，<br>当输入127.0.0.1/hello时，服务器进行了一次<br>重定向。因为唯一URL原则，实质上只有127.0.0.1/hello/能访问视图函数</p>
+<h4 id="路由的另外一种注册方法"><a href="#路由的另外一种注册方法" class="headerlink" title="路由的另外一种注册方法"></a>路由的另外一种注册方法</h4><p>开启自动调试模式：<br>(1.可以自动重启2.可以显示异常)<br>app.run(debug=True)<br>路由注册的两种方法：<br><a href="mailto:1.@app.route" target="_blank" rel="noopener">1.@app.route</a>(‘url’)<br>        def 视图函数<br>特点：简洁，常用<br>2.app.add_url_rule(‘url’,view_func=视图函数名)<br>特点：基于类的视图（即插视图）只能使用app.add_url_rule()</p>
+<p>注：@app.route装饰器，实际上是封装了<br>add_url_rule()</p>
+<h4 id="app-run相关参数与flask配置文件"><a href="#app-run相关参数与flask配置文件" class="headerlink" title="app.run相关参数与flask配置文件"></a>app.run相关参数与flask配置文件</h4><p>在主程序中导入配置文件<br>1.from config import DEBUG<br>        debug = DEBUG<br>2.（常用）载入配置文件<br>app.config.from_object(‘config路径’)<br>读取配置文件debug = app.config[‘DEBUG’]</p>
+<h1 id="config只能识别大写，若为小写会忽略掉"><a href="#config只能识别大写，若为小写会忽略掉" class="headerlink" title="config只能识别大写，若为小写会忽略掉"></a>config只能识别大写，若为小写会忽略掉</h1><p>#DEBUG在flask中是默认参数，默认值为False</p>
+<p>#可以使用config[]是由于config本身是字典的子类</p>
+<h4 id="if-name的作用"><a href="#if-name的作用" class="headerlink" title="if name的作用"></a>if <strong>name</strong>的作用</h4><ol>
+<li><p>config文件：所有的参数名的字母都要大写</p>
+</li>
+<li><p>if <strong>name</strong>的作用:<br>为什么要使用  if <strong>name</strong> == ‘<strong>main</strong>‘:<br>因为app.run()作为flask本身自带的服务器,可以在开发测试过程中使用.<br>但当部署到生产环境上的时候,一般会采用nginx代理服务器+uwsgi服务器结构.<br>在生产环境过程中APP模块是被导入或者加载执行的,有了if <strong>name</strong>判断就不会执行flask内置的服务器.以免造成影响.</p>
+</li>
+</ol>
+<h4 id="响应对象-Response"><a href="#响应对象-Response" class="headerlink" title="响应对象 Response"></a>响应对象 Response</h4><p>状态码只是标识，不会影响内容。<br>重定向：<br>headers ={<br>       ‘location’:’url’<br>}<br>response = make_response(‘文本内容’,301)</p>
+<p>return对象:resopnse<br>1.视图函数会返回很多附加信息:</p>
+<p>#status code 200,404等     #content-type  http headers</p>
+<p>#flask在不指定的情况下,会默认content-type= text/html,这个参数作用为:告诉respons接收方解析响应的方法.<br>例如:content-type=text/html, 浏览器将返回内容用Html方式解析并展现给用户<br>content-type = application/json 浏览器将返回内容转换为json格式<br>content-type = text/plain 转换为普通字符串</p>
+<p>flask非常方便的返回respons写法:<br>return ‘内容’, 301, headers<br>renturn 后面的三个参数被封装为respons对象,并且是元组格式,<br>使用此方式可以不用在使用respons对象,是flask支持的方式</p>
+<img src="/2018/10/23/flask-1-原理及准备工作/flask-demon.png" title="flask小例-重定向">
+<h4 id="书籍搜索查询API库资源"><a href="#书籍搜索查询API库资源" class="headerlink" title="书籍搜索查询API库资源"></a>书籍搜索查询API库资源</h4><p>关键字搜索：<br><a href="http://t.yushu.im/v2/book/search?q={}&amp;start={}&amp;count={}" target="_blank" rel="noopener">http://t.yushu.im/v2/book/search?q={}&amp;start={}&amp;count={}</a><br>isbn搜索：<br><a href="http://t.yushu.im/v2/book/isbn/{isbn}" target="_blank" rel="noopener">http://t.yushu.im/v2/book/isbn/{isbn}</a></p>
+<p>豆瓣api：<br><a href="https://api.douban.com/v2/book" target="_blank" rel="noopener">https://api.douban.com/v2/book</a></p>
+<p>均有访问频率限制(一小时几百次)！</p>
 
         </div>
         <footer class="article-footer">
@@ -189,7 +192,7 @@
 
 
 
-    <a data-url="http://yoursite.com/2018/10/23/flask-1-原理及准备工作/" data-id="cjnlifpyo001likpeq83dnfhh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/10/23/flask-1-原理及准备工作/" data-id="cjqi3tuhb0021s4peg75da2zw" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -302,6 +305,16 @@
         
 <nav id="article-nav">
     
+        <a href="/2018/10/31/flask-2-data-flask-route/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            flask-2-data-flask--route
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2018/10/23/SamBa-Server/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
@@ -336,10 +349,30 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/10/23/flask-1-原理及准备工作/" class="thumbnail">
+                            <a href="/2018/10/31/flask-2-data-flask-route/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
+                            <p class="item-title"><a href="/2018/10/31/flask-2-data-flask-route/" class="title">flask-2-data-flask--route</a></p>
+                            <p class="item-date"><time datetime="2018-10-31T12:16:53.000Z" itemprop="datePublished">2018-10-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/23/flask-1-原理及准备工作/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/10/23/flask-1-原理及准备工作/flask-demon.png)" alt="flask-1-原理及准备工作" class="thumbnail-image"></span>
     
     
 </a>
@@ -413,26 +446,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/07/24/9-APP-get/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Python爬虫/">Python爬虫</a></p>
-                            <p class="item-title"><a href="/2018/07/24/9-APP-get/" class="title">9-APP-get</a></p>
-                            <p class="item-date"><time datetime="2018-07-24T13:45:37.000Z" itemprop="datePublished">2018-07-24</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -442,7 +455,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python爬虫/">Python爬虫</a><span class="category-list-count">10</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python爬虫/">Python爬虫</a><span class="category-list-count">10</span></li></ul>
         </div>
     </div>
 
@@ -452,7 +465,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">8</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">8</span></li></ul>
         </div>
     </div>
 
@@ -462,7 +475,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/">Flask</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux实战/">Linux实战</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python基础语法/">Python基础语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络爬虫/">网络爬虫</a><span class="tag-list-count">10</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/">Flask</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux实战/">Linux实战</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python基础语法/">Python基础语法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python系统课程-C1/">Python系统课程-C1</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络爬虫/">网络爬虫</a><span class="tag-list-count">10</span></li></ul>
         </div>
     </div>
 
@@ -472,7 +485,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Linux实战/" style="font-size: 10px;">Linux实战</a> <a href="/tags/Python基础语法/" style="font-size: 13.33px;">Python基础语法</a> <a href="/tags/Python系统课程-C1/" style="font-size: 20px;">Python系统课程-C1</a> <a href="/tags/网络爬虫/" style="font-size: 16.67px;">网络爬虫</a>
+            <a href="/tags/Flask/" style="font-size: 12.5px;">Flask</a> <a href="/tags/Linux实战/" style="font-size: 10px;">Linux实战</a> <a href="/tags/Python基础语法/" style="font-size: 15px;">Python基础语法</a> <a href="/tags/Python系统课程-C1/" style="font-size: 20px;">Python系统课程-C1</a> <a href="/tags/网络爬虫/" style="font-size: 17.5px;">网络爬虫</a>
         </div>
     </div>
 
@@ -516,7 +529,7 @@
                 <h1 class="logo-wrap">
                     <a href="/" class="logo"></a>
                 </h1>
-                <p>&copy; 2018 Edisen Chai</p>
+                <p>&copy; 2019 Edisen Chai</p>
                 <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
             </div>
         </div>
